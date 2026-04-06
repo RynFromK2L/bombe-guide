@@ -1,4 +1,43 @@
-site_name: My Docs
+site_name: RynFromK2L's Bombe Guide
 site_url: https://rynfromk2l.github.io/bombe-guide
+
 theme:
   name: material
+  palette:
+    scheme: slate
+    primary: blue grey
+  features:
+    - content.footnote.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.path
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+    - toc.integrate
+
+plugins:
+  - search
+  - tags
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.superfences
+  - pymdownx.tilde
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
