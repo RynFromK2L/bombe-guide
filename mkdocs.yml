@@ -18,6 +18,14 @@ theme:
     - toc.integrate
 
 plugins:
+  - blog:
+      authors_profiles: true
+      categories_allowed:
+        - General
+        - Walkthrough
+        - Theory
+        - Personal
+      draft_on_serve: true
   - search
   - tags
 
