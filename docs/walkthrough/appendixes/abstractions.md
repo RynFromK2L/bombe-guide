@@ -19,16 +19,10 @@ Our basic abstractions are the those that are effectively self-evident.
 
 $$
 \begin{array}{cc}
-    A_\top := \begin{abstraction}{x}
-        \r x \\
-        \hline
-        x_\bomb
-    \end{abstraction} &
-    A_\bot := \begin{abstraction}{}
-        \r0 \\
-        \hline
-        ?_\sweep
-    \end{abstraction}
+    A_\top := \begin{abstraction}{x} \r x \\ \hline x_\bomb \end{abstraction} &
+    A_\bot := \begin{abstraction}{} \r0 \\ \hline ?_\sweep \end{abstraction} \\
+    A_{\top_\gt} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction} &
+    A_{\bot_\lt} = \begin{abstraction}{} \r{0-} \\ \hline ?_\sweep \end{abstraction}
 \end{array}
 $$
 
@@ -37,7 +31,7 @@ $$
 Our subtraction abstractions deal with removing a region from another in a way that lets us infer the subset's contents.
 
 $$
-\begin{array}{ccc}
+\begin{array}{cc}
     A_{{A/B}_\top} := \begin{abstraction}{xy}
         \r{x+y} && \r y \\
         \hline
@@ -46,6 +40,53 @@ $$
     A_{{A/B}_\bot} := \begin{abstraction}{x}
         \r x && \r x \\
         \hline ?_\sweep & ? & 0
+    \end{abstraction} &
+    A_{B\subsetneq A} := \begin{abstraction}{xy}
+        \r{x+y} && \r y \\
+        \hline {(x+1)+}_\r x & ? & 0
+    \end{abstraction}
+\end{array}
+$$
+
+$$
+\begin{array}{cc}
+    A_{{C/(A\cup B)}_\top} := \begin{abstraction}{xyz}
+        \r y && \r z \\
+        \hline
+        ? & ? & ? \\
+        ? & ? & ? & x_\bomb & \r{x+y+z}
+    \end{abstraction} &
+\end{array}
+$$
+
+$$
+\begin{array}{cc}
+A_{{(1_A\cap1_B)/C}_\bot} := \begin{abstraction}{x}
+    \r1 && \r1 \\
+    \hline
+    ? & ?_\sweep & ? \\
+    ? & ? & ? & \or x{x+1} & \r{x+2}
+\end{abstraction} &
+A_{{(A\Delta B)/C}_\bot} := \begin{abstraction}{xyz}
+    \r y && \r z \\
+    \hline
+    ?_\sweep & ? & ?_\sweep \\
+    ? & ? & ? & x & \r{x+y+z}
+\end{abstraction}
+\end{array}
+$$
+
+## Wires
+
+"Wires" are special chains of regions where the presence or absence of a bomb at one end infers the counter state at the other.
+
+$$
+\begin{array}{cc}
+    A_{\leftrightsquigarrow_1} := \begin{abstraction}{}
+        \r1 && \r1 \\
+        \hline
+        ?_\r1 & ? & ?_\r1 \\
+        ? & 0 & ? & 0 & \r1
     \end{abstraction}
 \end{array}
 $$
