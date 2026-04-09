@@ -86,7 +86,7 @@ $$
 \end{cases}
 $$
 
-## Level H11.4
+## Level H11.11
 
 The next level returns to our full regions, this time with five bombs.  You should know the drill by now.
 
@@ -102,7 +102,7 @@ $$
 
 Completing this previous level will unlock the "don't care" pseudo-value, which will allow us to finally reduce those empty region rules into one matching the abstraction, $A_\bot$.
 
-## Level H11.5
+## Level H11.19
 
 ...or at least, it would.  Unfortunately, we have a short guided tutorial on creating multi-region rules to follow first.
 
@@ -150,7 +150,7 @@ $$
 
 Updating $\rule0$ will also lead to us unlocking the rest of our static value options.
 
-## Level H11.7
+## Level H11.32
 
 This level returns us to subtracting regions...
 
@@ -164,7 +164,7 @@ $$
 \end{cases}
 $$
 
-## Level H11.8
+## Level H11.38
 
 ...as does this one.
 
