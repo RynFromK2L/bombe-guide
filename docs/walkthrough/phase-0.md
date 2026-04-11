@@ -92,7 +92,7 @@ The next level returns to our full regions, this time with five bombs.  You shou
 
 $$
 \begin{rcases}
-    \rule{H11.4} = \begin{rule} \r5 \\ \hline 5_\bomb \end{rule}
+    \rule{H11.11} = \begin{rule} \r5 \\ \hline 5_\bomb \end{rule}
 \end{rcases}
 \implies A_\top := \begin{abstraction}{x} \r x \\ \hline x_\bomb \end{abstraction}
 \therefore \begin{cases}
@@ -108,7 +108,7 @@ Completing this previous level will unlock the "don't care" pseudo-value, which 
 
 $$
 \begin{rcases}
-    \rule{H11.5_\alpha} = \begin{rule} \r1 && \r5 \\ \hline 2 & 2 & 4_\bomb \end{rule}
+    \rule{H11.19_\alpha} = \begin{rule} \r1 && \r5 \\ \hline 2 & 2 & 4_\bomb \end{rule}
 \end{rcases}
 \implies A_{(A\setminus B)_\top} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline x_\bomb & ? & ? \end{abstraction}
 \therefore \begin{cases}
@@ -120,7 +120,7 @@ This rule will reduce the five-bomb region down to a one-bomb region, and $1-1=0
 
 $$
 \begin{rcases}
-    \rule{H11.5_\beta} = \begin{rule} \r1 && \r1 \\ \hline 2_\sweep & 2 & 0 \end{rule}
+    \rule{H11.19_\beta} = \begin{rule} \r1 && \r1 \\ \hline 2_\sweep & 2 & 0 \end{rule}
 \end{rcases}
 \implies A_{(A\subsetneq B)_\bot} := \begin{abstraction}{x} \r x && \r x \\ \hline ?_\sweep & ? & 0 \end{abstraction}
 \therefore \begin{cases}
@@ -136,10 +136,10 @@ Rather than creating a separate rule for every size of empty region, let's reduc
 
 $$
 \begin{rcases}
-    \rule0 = \begin{rule} \r0 \\ \hline 1_\sweep \end{rule} \\
-    \rule1 = \begin{rule} \r0 \\ \hline 2_\sweep \end{rule} \\
-    \rule6 = \begin{rule} \r0 \\ \hline 3_\sweep \end{rule} \\
-    \rule{H11.6} = \begin{rule} \r4 \\ \hline 4_\sweep \end{rule}
+    \rule0 = &\begin{rule} \r0 \\ \hline 1_\sweep \end{rule} \\
+    \rule1 = &\begin{rule} \r0 \\ \hline 2_\sweep \end{rule} \\
+    \rule6 = &\begin{rule} \r0 \\ \hline 3_\sweep \end{rule} \\
+    &\begin{rule} \r4 \\ \hline 4_\sweep \end{rule}
 \end{rcases}
 \implies A_\bot := \begin{abstraction}{} \r0 \\ \hline ?_\sweep \end{abstraction}
 \therefore \begin{cases}
@@ -156,7 +156,7 @@ This level returns us to subtracting regions...
 
 $$
 \begin{rcases}
-    \rule{H11.7} = \begin{rule} \r2 && \r1 \\ \hline 1_\bomb & 2 & 1 \end{rule}
+    \rule{H11.32} = \begin{rule} \r2 && \r1 \\ \hline 1_\bomb & 2 & 1 \end{rule}
 \end{rcases}
 \implies A_{(A\setminus B)_\top} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline x_\bomb & ? & ? \end{abstraction}
 \therefore \begin{cases}
@@ -170,7 +170,7 @@ $$
 
 $$
 \begin{rcases}
-    \rule{H11.8} = \begin{rule} \r3 && \r1 \\ \hline 2_\bomb & 2 & 1 \end{rule}
+    \rule{H11.38} = \begin{rule} \r3 && \r1 \\ \hline 2_\bomb & 2 & 1 \end{rule}
 \end{rcases}
 \implies A_{(A\setminus B)_\top} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline x_\bomb & ? & ? \end{abstraction}
 \therefore \begin{cases}
