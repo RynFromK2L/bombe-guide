@@ -162,7 +162,7 @@ $$
 \begin{rcases}
     \rule{H12.0_\alpha} = \begin{rule} \r{0-} \\ \hline 3_\sweep \end{rule}
 \end{rcases}
-\implies A_{\bot_\leq} = \begin{abstraction}{} \r{0-} \\ \hline ?_\sweep \end{abstraction}
+\implies A_{\bot_\leq} := \begin{abstraction}{} \r{0-} \\ \hline ?_\sweep \end{abstraction}
 \therefore \begin{cases}
     \underset{A_{\bot_\leq}}{\rule{19}^\new} = \begin{rule} \r{0-} \\ \hline ?_\sweep \end{rule}
 \end{cases}
@@ -174,7 +174,7 @@ $$
 \begin{rcases}
     \rule{H12.0_\beta} = \begin{rule} \r{2+} \\ \hline 2_\bomb \end{rule}
 \end{rcases}
-\implies A_{\top_\geq} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
+\implies A_{\top_\geq} := \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
 \therefore \begin{cases}
     \underset{A_{\top_\geq}[x:=2]}{\rule{20}^\new} = \begin{rule} \r{2+} \\ \hline 2_\bomb \end{rule}
 \end{cases}
@@ -184,7 +184,7 @@ $$
 \begin{rcases}
     \rule{H12.3} = \begin{rule} \r{1+} \\ \hline 1_\bomb \end{rule}
 \end{rcases}
-\implies A_{\top_\geq} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
+\implies A_{\top_\geq} := \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
 \therefore \begin{cases}
     \underset{A_{\top_\geq}[x:=1]}{\rule{21}^\new} = \begin{rule} \r{1+} \\ \hline 1_\bomb \end{rule}
 \end{cases}
@@ -209,7 +209,7 @@ $$
 \begin{rcases}
     \rule{H12.5} = \begin{rule} \r{3+} \\ \hline 3_\bomb \end{rule}
 \end{rcases}
-\implies A_{\top_\geq} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
+\implies A_{\top_\geq} := \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
 \therefore \begin{cases}
     \underset{A_{\top_\geq}[x:=3]}{\rule{23}^\new} = \begin{rule} \r{3+} \\ \hline 3_\bomb \end{rule}
 \end{cases}
@@ -260,7 +260,7 @@ $$
 \begin{rcases}
     \rule{H12.16} = \begin{rule} \r{5+} \\ \hline 5_\bomb \end{rule}
 \end{rcases}
-\implies A_{\top_\geq} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
+\implies A_{\top_\geq} := \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
 \therefore \begin{cases}
     \underset{A_{\top_\geq}[x:=5]}{\rule{27}^\new} = \begin{rule} \r{5+} \\ \hline 5_\bomb \end{rule}
 \end{cases}
@@ -339,7 +339,7 @@ $$
 \begin{rcases}
     \rule{H12.40_\alpha} = \begin{rule} \r3 && \r{1-} \\ \hline 2_\bomb & 2 & 2 \end{rule}
 \end{rcases}
-\implies A_{(A\setminus B_<)_\top} = \begin{abstraction}{xy}
+\implies A_{(A\setminus B_<)_\top} := \begin{abstraction}{xy}
     \r{x+y} && \r{y-} \\
     \hline
     x_\bomb & ? & ?
@@ -411,7 +411,7 @@ $$
 \begin{rcases}
     \rule{H12.74} = \begin{rule} \r{4+} \\ \hline 4_\bomb \end{rule}
 \end{rcases}
-\implies A_{\top_\geq} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
+\implies A_{\top_\geq} := \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
 \begin{cases}
     \underset{A_{\top_\geq}[x:=4]}{\rule{35}^\new} = \begin{rule} \r{4+} \\ \hline 4_\bomb \end{rule}
 \end{cases}

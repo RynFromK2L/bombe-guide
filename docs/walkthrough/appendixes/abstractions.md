@@ -21,8 +21,8 @@ $$
 \begin{array}{cc}
     A_\top := \begin{abstraction}{x} \r x \\ \hline x_\bomb \end{abstraction} &
     A_\bot := \begin{abstraction}{} \r0 \\ \hline ?_\sweep \end{abstraction} \\
-    A_{\top_\geq} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction} &
-    A_{\bot_\leq} = \begin{abstraction}{} \r{0-} \\ \hline ?_\sweep \end{abstraction}
+    A_{\top_\geq} := \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction} &
+    A_{\bot_\leq} := \begin{abstraction}{} \r{0-} \\ \hline ?_\sweep \end{abstraction}
 \end{array}
 $$
 
