@@ -21,58 +21,8 @@ $$
 \begin{array}{cc}
     A_\top := \begin{abstraction}{x} \r x \\ \hline x_\bomb \end{abstraction} &
     A_\bot := \begin{abstraction}{} \r0 \\ \hline ?_\sweep \end{abstraction} \\
-    A_{\top_\gt} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction} &
-    A_{\bot_\lt} = \begin{abstraction}{} \r{0-} \\ \hline ?_\sweep \end{abstraction}
-\end{array}
-$$
-
-## Subtraction
-
-Our subtraction abstractions deal with removing a region from another in a way that lets us infer the subset's contents.
-
-$$
-\begin{array}{cc}
-    A_{{A/B}_\top} := \begin{abstraction}{xy}
-        \r{x+y} && \r y \\
-        \hline
-        x_\bomb & ? & ?
-    \end{abstraction} &
-    A_{{A/B}_\bot} := \begin{abstraction}{x}
-        \r x && \r x \\
-        \hline ?_\sweep & ? & 0
-    \end{abstraction} &
-    A_{B\subsetneq A} := \begin{abstraction}{xy}
-        \r{x+y} && \r y \\
-        \hline {(x+1)+}_\r x & ? & 0
-    \end{abstraction}
-\end{array}
-$$
-
-$$
-\begin{array}{cc}
-    A_{{C/(A\cup B)}_\top} := \begin{abstraction}{xyz}
-        \r y && \r z \\
-        \hline
-        ? & ? & ? \\
-        ? & ? & ? & x_\bomb & \r{x+y+z}
-    \end{abstraction} &
-\end{array}
-$$
-
-$$
-\begin{array}{cc}
-A_{{(1_A\cap1_B)/C}_\bot} := \begin{abstraction}{x}
-    \r1 && \r1 \\
-    \hline
-    ? & ?_\sweep & ? \\
-    ? & ? & ? & \or x{x+1} & \r{x+2}
-\end{abstraction} &
-A_{{(A\Delta B)/C}_\bot} := \begin{abstraction}{xyz}
-    \r y && \r z \\
-    \hline
-    ?_\sweep & ? & ?_\sweep \\
-    ? & ? & ? & x & \r{x+y+z}
-\end{abstraction}
+    A_{\top_\geq} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction} &
+    A_{\bot_\leq} = \begin{abstraction}{} \r{0-} \\ \hline ?_\sweep \end{abstraction}
 \end{array}
 $$
 
@@ -88,5 +38,111 @@ $$
         ?_\r1 & ? & ?_\r1 \\
         ? & 0 & ? & 0 & \r1
     \end{abstraction}
+\end{array}
+$$
+
+## Subtraction
+
+Our subtraction abstractions deal with removing a region from another in a way that lets us infer the subset's contents.
+
+$$
+\begin{array}{ccc}
+    A_{(A\setminus B)_\top} := \begin{abstraction}{xy}
+        \r{x+y} && \r y \\
+        \hline
+        x_\bomb & ? & ?
+    \end{abstraction} &
+    A_{(A\subsetneq B)_\bot} := \begin{abstraction}{x}
+        \r x && \r x \\
+        \hline ?_\sweep & ? & 0
+    \end{abstraction} &
+    A_{A\subsetneq B} := \begin{abstraction}{xy}
+        \r{x+y} && \r y \\
+        \hline {(x+1)+}_\r x & ? & 0
+    \end{abstraction} \\
+    A_{(A_\geq\setminus B)_\top} := \begin{abstraction}{xy}
+        \r{(x+y)+} && \r y \\
+        \hline
+        x_\bomb & ? & ?
+    \end{abstraction} &
+    A_{(A_\leq\subsetneq B)_\bot} := \begin{abstraction}{x}
+        \r{x-} && \r x \\
+        \hline
+        ?_\sweep & ? & 0
+    \end{abstraction} \\
+    A_{(A_\geq\setminus B_\leq)_\top} := \begin{abstraction}{xy}
+        \r{(x+y)+} && \r{y-} \\
+        \hline
+        x_\bomb & ? & ?
+    \end{abstraction} &
+    A_{(A_\leq\subsetneq B_\geq)_\bot} := \begin{abstraction}{x}
+        \r{x-} && \r{x+} \\
+        \hline ?_\sweep & ? & 0
+    \end{abstraction} \\
+    A_{(A\setminus B_\leq)_\top} := \begin{abstraction}{xy}
+        \r{x+y} && \r{y-} \\
+        \hline
+        x_\bomb & ? & ?
+    \end{abstraction} &
+    A_{(A\subsetneq B_\geq)_\bot} := \begin{abstraction}{x}
+        \r{x} && \r{x+} \\
+        \hline
+        ?_\sweep & ? & 0
+    \end{abstraction}
+\end{array}
+$$
+
+$$
+\begin{array}{ccc}
+    A_{A\setminus{B_2}} := \begin{abstraction}{x}
+        \r{x+2} && \r2 \\
+        \hline
+        ?_\r{\or x{x+1}} & ? & 1
+    \end{abstraction}
+\end{array}
+$$
+
+$$
+\begin{array}{cc}
+    A_{(C\setminus(A\cup B))_\top} := \begin{abstraction}{xyz}
+        \r y && \r z \\
+        \hline
+        ? & ? & ? \\
+        ? & ? & ? & x_\bomb & \r{x+y+z}
+    \end{abstraction} &
+\end{array}
+$$
+
+$$
+\begin{array}{cc}
+A_{((A_1\cap B_1)\setminus C)_\bot} := \begin{abstraction}{x}
+    \r1 && \r1 \\
+    \hline
+    ? & ?_\sweep & ? \\
+    ? & ? & ? & \or x{x+1} & \r{x+2}
+\end{abstraction} &
+A_{((A\Delta B)\setminus C)_\bot} := \begin{abstraction}{xyz}
+    \r y && \r z \\
+    \hline
+    ?_\sweep & ? & ?_\sweep \\
+    ? & ? & ? & x & \r{x+y+z}
+\end{abstraction} \\
+A_{((A_1\cap{B_{\leq1}})\setminus C_\geq)_\bot} := \begin{abstraction}{x}
+    \r1 && \r{1-} \\
+    \hline
+    ? & ?_\sweep & ? \\
+    ? & ? & ? & \or x{x+1} & \r{(x+2)+}
+\end{abstraction}
+\end{array}
+$$
+
+$$
+\begin{array}{cc}
+A_{((A\cap B_{\oplus1})\setminus C_\geq)_\bot} := \begin{abstraction}{xyz}
+    \r y && \r{(x+y+z)+} \\
+    \hline
+    ? & ? & x \\
+    ?_\sweep & ? & ? & ? & \r{\or z{z+1}}
+\end{abstraction}
 \end{array}
 $$

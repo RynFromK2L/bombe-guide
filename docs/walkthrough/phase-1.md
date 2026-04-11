@@ -22,9 +22,9 @@ $$
 \begin{rcases}
     \rule{H11.42} = \begin{rule} \r2 && \r1 \\ \hline 3_\r1 & 2 & 0 \end{rule}
 \end{rcases}
-\implies A_{B\subsetneq A} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline {(x+1)+}_\r x & ? & 0 \end{abstraction}
+\implies A_{A\subsetneq B} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline {(x+1)+}_\r x & ? & 0 \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{B\subsetneq A}[x:=1,y:=1]}{\rule{10}^\new} = \begin{rule} \r2 && \r1 \\ \hline 2+_\r1 & ? & 0 \end{rule}
+    \underset{A_{A\subsetneq B}[x:=1,y:=1]}{\rule{10}^\new} = \begin{rule} \r2 && \r1 \\ \hline 2+_\r1 & ? & 0 \end{rule}
 \end{cases}
 $$
 
@@ -34,9 +34,9 @@ $$
 \begin{rcases}
     \rule{H11.74} = \begin{rule} \r4 && \r1 \\ \hline 3_\bomb & 2 & 1 \end{rule}
 \end{rcases}
-\implies A_{{A/B}_\top} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline x_\bomb & ? & ? \end{abstraction}
+\implies A_{(A\setminus B)_\top} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline x_\bomb & ? & ? \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{{A/B}_\top}[x:=3,y:=1]}{\rule{11}^\new} = \begin{rule} \r4 && \r1 \\ \hline 3_\bomb & ? & ? \end{rule}
+    \underset{A_{(A\setminus B)_\top}[x:=3,y:=1]}{\rule{11}^\new} = \begin{rule} \r4 && \r1 \\ \hline 3_\bomb & ? & ? \end{rule}
 \end{cases}
 $$
 
@@ -44,9 +44,9 @@ $$
 \begin{rcases}
     \rule{H11.100} = \begin{rule} \r3 && \r1 \\ \hline 3_\r1 & 2 & 0 \end{rule}
 \end{rcases}
-\implies A_{B\subsetneq A} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline {(x+1)+}_\r x & ? & 0 \end{abstraction}
+\implies A_{A\subsetneq B} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline {(x+1)+}_\r x & ? & 0 \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{B\subsetneq A}[x:=2,y:=1]}{\rule{12}^\new} = \begin{rule} \r3 && \r1 \\ \hline 3+_\r2 & ? & 0 \end{rule}
+    \underset{A_{A\subsetneq B}[x:=2,y:=1]}{\rule{12}^\new} = \begin{rule} \r3 && \r1 \\ \hline 3+_\r2 & ? & 0 \end{rule}
 \end{cases}
 $$
 
@@ -57,14 +57,14 @@ $$
 \begin{rcases}
     \rule{H11.148} = \begin{rule} \r1 && \r1 \\ \hline 1 & 1_\sweep & 1 \\ 1 & 0 & 1 & 2 & \r3 \end{rule}
 \end{rcases}
-&\implies A_{{(1_A\cap1_B)/C}_\bot} := \begin{abstraction}{x}
+&\implies A_{((A_1\cap B_1)\setminus C)_\bot} := \begin{abstraction}{x}
     \r1 && \r1 \\
     \hline
     ? & ?_\sweep & ? \\
     ? & ? & ? & \or x{x+1} & \r{x+2}
 \end{abstraction} \\
 &\therefore \begin{cases}
-    \underset{A_{{(1_A\cap1_B)/C}_\bot}[x:=1]}{\rule{13}^\new} = \begin{rule} \r1 && \r1 \\ \hline ? & ?_\sweep & ? \\ ? & ? & ? & \or12 & \r3 \end{rule}
+    \underset{A_{((A_1\cap B_1)\setminus C)_\bot}[x:=1]}{\rule{13}^\new} = \begin{rule} \r1 && \r1 \\ \hline ? & ?_\sweep & ? \\ ? & ? & ? & \or12 & \r3 \end{rule}
 \end{cases}
 \end{align*}
 $$
@@ -80,14 +80,14 @@ $$
 \begin{rcases}
     \rule{H21.75} = \begin{rule} \r1 && \r1 \\ \hline 0 & 1_\sweep & 0 \\ 1 & 0 & 1 & 1 & \r2 \end{rule}
 \end{rcases}
-&\implies A_{{(1_A\cap1_B)/C}_\bot} := \begin{abstraction}{x}
+&\implies A_{((A_1\cap B_1)\setminus C)_\bot} := \begin{abstraction}{x}
     \r1 && \r1 \\
     \hline
     ? & ?_\sweep & ? \\
     ? & ? & ? & \or x{x+1} & \r{x+2}
 \end{abstraction} \\
 &\therefore \begin{cases}
-    \underset{A_{{(1_A\cap1_B)/C}_\bot}[x:=0]}{\rule{14}^\new} = \begin{rule} \r1 && \r1 \\ \hline ? & ?_\sweep & ? \\ ? & ? & ? & \or01 & \r2 \end{rule}
+    \underset{A_{((A_1\cap B_1)\setminus C)_\bot}[x:=0]}{\rule{14}^\new} = \begin{rule} \r1 && \r1 \\ \hline ? & ?_\sweep & ? \\ ? & ? & ? & \or01 & \r2 \end{rule}
 \end{cases}
 \end{align*}
 $$
@@ -99,14 +99,14 @@ $$
 \begin{rcases}
     \rule{H21.85} = \begin{rule} \r1 && \r1 \\ \hline 1 & 0 & 1 \\ 2 & 0 & 2 & 1_\bomb \end{rule}
 \end{rcases}
-&\implies A_{{C/(A\cup B)}_\top} := \begin{abstraction}{xyz}
+&\implies A_{(C\setminus(A\cup B))_\top} := \begin{abstraction}{xyz}
     \r y && \r z \\
     \hline
     ? & ? & ? \\
     ? & ? & ? & x_\bomb & \r{x+y+z}
 \end{abstraction} \\
 &\therefore \begin{cases}
-    \underset{A_{{C/(A\cup B)}_\top}[x:=1,y:=1,z:=1]}{\rule{15}^\new} = \begin{rule} \r1 && \r1 \\ \hline ? & ? & ? \\ ? & ? & ? & 1_\bomb & \r3 \end{rule}
+    \underset{A_{(C\setminus(A\cup B))_\top}[x:=1,y:=1,z:=1]}{\rule{15}^\new} = \begin{rule} \r1 && \r1 \\ \hline ? & ? & ? \\ ? & ? & ? & 1_\bomb & \r3 \end{rule}
 \end{cases}
 \end{align*}
 $$
@@ -116,14 +116,14 @@ $$
 \begin{rcases}
     \rule{H21.85} = \begin{rule} \r1 && \r1 \\ \hline 1 & 0 & 1 \\ 2 & 0 & 2 & 1_\bomb \end{rule}
 \end{rcases}
-&\implies A_{{(A\Delta B)/C}_\bot} := \begin{abstraction}{xyz}
+&\implies A_{((A\Delta B)\setminus C)_\bot} := \begin{abstraction}{xyz}
     \r y && \r z \\
     \hline
     ?_\sweep & ? & ?_\sweep \\
     ? & ? & ? & x & \r{x+y+z}
 \end{abstraction} \\
 &\therefore \begin{cases}
-    \underset{A_{{(A\Delta B)/C}_\bot}[x:=0,y:=1,z:=1]}{\rule{16}^\new} = \begin{rule} \r1 && \r1 \\ \hline ?_\sweep & ? & ?_\sweep \\ ? & ? & ? & 0 & \r2 \end{rule}
+    \underset{A_{((A\Delta B)\setminus C)_\bot}[x:=0,y:=1,z:=1]}{\rule{16}^\new} = \begin{rule} \r1 && \r1 \\ \hline ?_\sweep & ? & ?_\sweep \\ ? & ? & ? & 0 & \r2 \end{rule}
 \end{cases}
 \end{align*}
 $$
@@ -162,9 +162,9 @@ $$
 \begin{rcases}
     \rule{H12.0_\alpha} = \begin{rule} \r{0-} \\ \hline 3_\sweep \end{rule}
 \end{rcases}
-\implies A_{\bot_\lt} = \begin{abstraction}{} \r{0-} \\ \hline ?_\sweep \end{abstraction}
+\implies A_{\bot_\leq} = \begin{abstraction}{} \r{0-} \\ \hline ?_\sweep \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{\bot_\lt}}{\rule{19}^\new} = \begin{rule} \r{0-} \\ \hline ?_\sweep \end{rule}
+    \underset{A_{\bot_\leq}}{\rule{19}^\new} = \begin{rule} \r{0-} \\ \hline ?_\sweep \end{rule}
 \end{cases}
 $$
 
@@ -174,8 +174,310 @@ $$
 \begin{rcases}
     \rule{H12.0_\beta} = \begin{rule} \r{2+} \\ \hline 2_\bomb \end{rule}
 \end{rcases}
-\implies A_{\top_\gt} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
+\implies A_{\top_\geq} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{\top_\gt}[x:=2]}{\rule{20}^\new} = \begin{rule} \r{2+} \\ \hline 2_\bomb \end{rule}
+    \underset{A_{\top_\geq}[x:=2]}{\rule{20}^\new} = \begin{rule} \r{2+} \\ \hline 2_\bomb \end{rule}
 \end{cases}
 $$
+
+$$
+\begin{rcases}
+    \rule{H12.3} = \begin{rule} \r{1+} \\ \hline 1_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\geq} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\geq}[x:=1]}{\rule{21}^\new} = \begin{rule} \r{1+} \\ \hline 1_\bomb \end{rule}
+\end{cases}
+$$
+
+Similarly, we need handle subtraction for these min/max regions.
+
+$$
+\begin{rcases}
+    \rule{H12.4} = \begin{rule} \r{1-} && \r{1+} \\ \hline 3_\sweep & 2 & 0 \end{rule}
+\end{rcases}
+\implies A_{(A_\leq\subsetneq B_\geq)_\bot} := \begin{abstraction}{x}
+    \r{x-} && \r{x+} \\
+    \hline ?_\sweep & ? & 0
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\leq\subsetneq B_\geq)_\bot}[x:=1]}{\rule{22}^\new} = \begin{rule} \r{1-} && \r{1+} \\ \hline ?_\sweep & ? & 0 \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H12.5} = \begin{rule} \r{3+} \\ \hline 3_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\geq} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\geq}[x:=3]}{\rule{23}^\new} = \begin{rule} \r{3+} \\ \hline 3_\bomb \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H12.12_\alpha} = \begin{rule} \r{3+} && \r1 \\ \hline 2_\bomb & 2 & 2 \end{rule}
+\end{rcases}
+\implies A_{(A_\geq\setminus B)_\top} := \begin{abstraction}{xy}
+    \r{(x+y)+} && \r y \\
+    \hline
+    x_\bomb & ? & ?
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\geq\setminus B)_\top}[x:=2,y:=1]}{\rule{24}^\new} = \begin{rule} \r{3+} && \r1 \\ \hline 2_\bomb & ? & ? \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H12.12_\beta} = \begin{rule} \r1 && \r{1+} \\ \hline 2_\sweep & 2 & 0 \end{rule}
+\end{rcases}
+\implies A_{(A\subsetneq B_\geq)_\bot} := \begin{abstraction}{x}
+    \r{x} && \r{x+} \\
+    \hline ?_\sweep & ? & 0
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A\subsetneq B_\geq)_\bot}[x:=1]}{\rule{25}^\new} = \begin{rule} \r1 && \r{1+} \\ \hline ?_\sweep & ? & 0 \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H12.15} = \begin{rule} \r{2+} && \r{1-} \\ \hline 1_\bomb & 2 & 1 \end{rule}
+\end{rcases}
+\implies A_{(A_\geq\setminus B_\leq)_\top} := \begin{abstraction}{xy}
+    \r{(x+y)+} && \r{y-} \\
+    \hline
+    x_\bomb & ? & ?
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\geq\setminus B_\leq)_\top}[x:=1,y:=1]}{\rule{26}^\new} = \begin{rule} \r{2+} && \r{1-} \\ \hline 1_\bomb & ? & ? \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H12.16} = \begin{rule} \r{5+} \\ \hline 5_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\geq} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\geq}[x:=5]}{\rule{27}^\new} = \begin{rule} \r{5+} \\ \hline 5_\bomb \end{rule}
+\end{cases}
+$$
+
+Yeah, there's not really much commentary here other than this; I really hate this part of this game.  Things are starting to get more complex, but what really drains me is having to come create rules for every permutation of each of our abstrations.  This is especially true every time I come across a level needing a new rule with a single variable abstraction; I just want to be done with them already.
+
+Seeing as we're probably starting to lose our patience after the last rule, let's perform auto-run passes of our tabs and see how much closer we are to that first variable.  This is kind of my habit with this phase; create some levels, perform an auto-run pass to get a little dopamine hit for my efforts.
+
+This time around, we actually did make good progress.  We're now about 2500 levels away from said variable, but almost better, we can now see that these rules have brought us to only having 20 levels left in this set.  As such, let's close that out.
+
+$$
+\begin{rcases}
+    \rule{H12.22} = \begin{rule} \r{4+} && \r{1-} \\ \hline 3_\bomb & 2 & 2 \end{rule}
+\end{rcases}
+\implies A_{(A_\geq\setminus B_\leq)_\top} := \begin{abstraction}{xy}
+        \r{(x+y)+} && \r{y-} \\
+        \hline
+        x_\bomb & ? & ?
+    \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\geq\setminus B_\leq)_\top}[x:=3,y:=1]}{\rule{28}^\new} = \begin{rule} \r{4+} && \r{1-} \\ \hline 3_\bomb & ? & ? \end{rule}
+\end{cases}
+$$
+
+Reaching level H12.28 presents an interesting challenge. If we click the hint button, the game will direct us to the single-bomb region; unfortunately, it also shows us that we need all four regions in order to determine the answer.  While we could do that; four regions strikes me as overly specific at this point.  As we saw with level H21.195, we sometimes need an intermediate rule to reduce the number of regions required to solve a situation.
+
+In this case, we're depending on a two-bomb region that's off by itself.  Perhaps we can prune that out.
+
+$$
+\begin{align*}
+\begin{rcases}
+    \rule{H12.28} = \begin{rule}
+        \r1 && \r{2+} \\
+        \hline
+        0 & 1 & 1 \\
+        1_\sweep & 0 & 1 & 1 & \r2 \\
+        0 & 0 & 0 & 2 \\
+        0 & 0 & 0 & 1 & \r2
+    \end{rule}
+\end{rcases}
+&\to \begin{cases}
+    \rule{H12.28_\alpha} = \begin{rule} \r{2} && \r{2} \\ \hline 3_\r{\or01} & 2 & 1 \end{rule} \\
+    \rule{H12.28_\beta} = \begin{rule} \r1 && \r{2+} \\ \hline 0 & 1 & 1 \\ 1_\sweep & 0 & 1 & 1 & \r{\or01} \end{rule}
+\end{cases} \\
+&\implies \begin{cases}
+    A_{A\setminus{B_2}} := \begin{abstraction}{x}
+        \r{x+2} && \r2 \\
+        \hline
+        ?_\r{\or x{x+1}} & ? & 1
+    \end{abstraction} \\
+    A_{((A\cap B_{\oplus1})\setminus C_\geq)_\bot} := \begin{abstraction}{xyz}
+        \r y && \r{(x+y+z)+} \\
+        \hline
+        ? & ? & x \\
+        ?_\sweep & ? & ? & ? & \r{\or z{z+1}}
+    \end{abstraction}
+\end{cases} \\
+&\therefore \begin{cases}
+    \underset{A_{A\setminus{B_2}}[x:=0]}{\rule{29}^\new} = \begin{rule}
+        \r2 && \r2 \\
+        \hline
+        ?_\r{\or01} & ? & 1
+    \end{rule} \\
+    \underset{A_{((A\cap B_{\oplus1})\setminus C_\geq)_\bot}[x:=1,y:=1,z:=0]}{\rule{30}^\new} = \begin{rule}
+        \r1 && \r{2+} \\
+        \hline
+        ? & ? & 1 \\
+        ?_\sweep & ? & ? & ? & \r{\or01}
+    \end{rule}
+\end{cases}
+\end{align*}
+$$
+
+$$
+\begin{rcases}
+    \rule{H12.40_\alpha} = \begin{rule} \r3 && \r{1-} \\ \hline 2_\bomb & 2 & 2 \end{rule}
+\end{rcases}
+\implies A_{(A\setminus B_<)_\top} = \begin{abstraction}{xy}
+    \r{x+y} && \r{y-} \\
+    \hline
+    x_\bomb & ? & ?
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A\setminus B_<)_\top}[x:=2,y:=1]}{\rule{31}^\new} = \begin{rule}
+        \r3 && \r{1-} \\
+        \hline
+        2_\bomb & ? & ?
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H12.40_\beta} = \begin{rule} \r{1-} && \r1 \\ 2_\sweep & 2 & 0 \end{rule}
+\end{rcases}
+\implies A_{(A_\lt\setminus B)_\bot} := \begin{abstraction}{x}
+    \r{x-} && \r x \\
+    \hline
+    ?_\sweep & ? & 0
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\lt\setminus B)_\bot}[x:=1]}{\rule{32}^\new} = \begin{rule}
+        \r{1-} && \r1 \\
+        \hline
+        ?_\sweep & ? & 0
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H12.44} = \begin{rule} \r2 && \r{1-} \\ \hline 1_\bomb & 2 & 2 \end{rule}
+\end{rcases}
+\implies A_{(A\setminus B_<)_\top} := \begin{abstraction}{xy}
+    \r{x+y} && \r{y-} \\
+    \hline
+    x_\bomb & ? & ?
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A\setminus B_<)_\top}[x:=1,y:=1]}{\rule{33}^\new} = \begin{rule}
+        \r2 && \r{1-} \\
+        \hline
+        1_\bomb & ? & ?
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H12.60} = \begin{rule} \r{3+} && \r{1-} \\ \hline 2_\bomb & 2 & 0 \end{rule}
+\end{rcases}
+\implies A_{(A_\geq\setminus B_\leq)_\top} := \begin{abstraction}{xy}
+    \r{(x+y)+} && \r{y-} \\
+    \hline
+    x_\bomb & ? & ?
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\geq\setminus B_\leq)_\top}[x:=2,y:=1]}{\rule{34}^\new} = \begin{rule}
+        \r{3+} && \r{1-} \\
+        \hline
+        2_\bomb & ? & ?
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H12.74} = \begin{rule} \r{4+} \\ \hline 4_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\geq} = \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
+\begin{cases}
+    \underset{A_{\top_\geq}[x:=4]}{\rule{35}^\new} = \begin{rule} \r{4+} \\ \hline 4_\bomb \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H12.103} = \begin{rule} \r5 && \r{1-} \\ \hline 4_\bomb & 2 & 1 \end{rule}
+\end{rcases}
+\implies A_{(A\setminus B_<)_\top} := \begin{abstraction}{xy}
+    \r{x+y} && \r{y-} \\
+    \hline
+    x_\bomb & ? & ?
+\end{abstraction}
+\begin{cases}
+    \underset{A_{(A\setminus B_<)_\top}[x:=4,y:=1]}{\rule{36}^\new} = \begin{rule}
+        \r5 && \r{1-} \\
+        \hline
+        4_\bomb & ? & ?
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{align*}
+\begin{rcases}
+    \rule{H12.140} = \begin{rule}
+        \r1 && \r{1-} \\
+        \hline
+        1 & 1_\sweep & 0 \\
+        1 & 0 & 1 & 3 & \r{4+}
+    \end{rule}
+\end{rcases}
+&\implies A_{((A_1\cap{B_{\leq1}})\setminus C_\gt)_\bot} := \begin{abstraction}{x}
+    \r1 && \r{1-} \\
+    \hline
+    ? & ?_\sweep & ? \\
+    ? & ? & ? & \or x{x+1} & \r{(x+2)+}
+\end{abstraction} \\
+&\therefore \begin{cases}
+    \underset{A_{((A_1\cap{B_{\leq1}})\setminus C_\gt)_\bot}[x:=2]}{\rule{37}^\new} = \begin{rule}
+        \r1 && \r{1-} \\
+        \hline
+        ? & ?_\sweep & ? \\
+        ? & ? & ? & 3 & \r{4+}
+    \end{rule}
+\end{cases}
+\end{align*}
+$$
+
+$$
+\begin{rcases}
+    \rule{H12.143} = \begin{rule} \r{2+} && \r1 \\ \hline 1_\bomb & 2 & 1 \end{rule}
+\end{rcases}
+\implies A_{(A_\geq\setminus B)_\top} := \begin{abstraction}{xy}
+    \r{(x+y)+} && \r y \\
+    \hline
+    x_\bomb & ? & ?
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\geq\setminus B)_\top}[x:=1,y:=1]}{\rule{38}^\new} = \begin{rule}
+        \r{2+} && \r1 \\
+        \hline
+        1_\bomb & ? & ?
+    \end{rule}
+\end{cases}
+$$
+
+And that finally completes this level set.  Let's perform our auto-run passes, which will get us down to approximately 2000 levels away from our goal.
