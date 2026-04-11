@@ -110,9 +110,9 @@ $$
 \begin{rcases}
     \rule{H11.5_\alpha} = \begin{rule} \r1 && \r5 \\ \hline 2 & 2 & 4_\bomb \end{rule}
 \end{rcases}
-\implies A_{{A/B}_\top} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline x_\bomb & ? & ? \end{abstraction}
+\implies A_{(A\setminus B)_\top} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline x_\bomb & ? & ? \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{{A/B}_\top}[x:=4,y:=1]}{\rule8^\new} = \begin{rule} \r1 && \r5 \\ \hline ? & ? & 4_\bomb \end{rule}
+    \underset{A_{(A\setminus B)_\top}[x:=4,y:=1]}{\rule8^\new} = \begin{rule} \r1 && \r5 \\ \hline ? & ? & 4_\bomb \end{rule}
 \end{cases}
 $$
 
@@ -122,9 +122,9 @@ $$
 \begin{rcases}
     \rule{H11.5_\beta} = \begin{rule} \r1 && \r1 \\ \hline 2_\sweep & 2 & 0 \end{rule}
 \end{rcases}
-\implies A_{{A/B}_\bot} := \begin{abstraction}{x} \r x && \r x \\ \hline ?_\sweep & ? & 0 \end{abstraction}
+\implies A_{(A\subsetneq B)_\bot} := \begin{abstraction}{x} \r x && \r x \\ \hline ?_\sweep & ? & 0 \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{{A/B}_\bot}[x:=1]}{\rule9^\new} = \begin{rule} \r1 && \r1 \\ \hline ?_\sweep & ? & 0 \end{rule}
+    \underset{A_{(A\subsetneq B)_\bot}[x:=1]}{\rule9^\new} = \begin{rule} \r1 && \r1 \\ \hline ?_\sweep & ? & 0 \end{rule}
 \end{cases}
 $$
 
@@ -158,9 +158,9 @@ $$
 \begin{rcases}
     \rule{H11.7} = \begin{rule} \r2 && \r1 \\ \hline 1_\bomb & 2 & 1 \end{rule}
 \end{rcases}
-\implies A_{{A/B}_\top} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline x_\bomb & ? & ? \end{abstraction}
+\implies A_{(A\setminus B)_\top} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline x_\bomb & ? & ? \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{{A/B}_\top}[x:=1,y:=1]}{\rule8^\new} = \begin{rule} \r2 && \r1 \\ \hline 1_\bomb & ? & ? \end{rule}
+    \underset{A_{(A\setminus B)_\top}[x:=1,y:=1]}{\rule8^\new} = \begin{rule} \r2 && \r1 \\ \hline 1_\bomb & ? & ? \end{rule}
 \end{cases}
 $$
 
@@ -172,9 +172,9 @@ $$
 \begin{rcases}
     \rule{H11.8} = \begin{rule} \r3 && \r1 \\ \hline 2_\bomb & 2 & 1 \end{rule}
 \end{rcases}
-\implies A_{{A/B}_\top} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline x_\bomb & ? & ? \end{abstraction}
+\implies A_{(A\setminus B)_\top} := \begin{abstraction}{xy} \r{x+y} && \r y \\ \hline x_\bomb & ? & ? \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{{A/B}_\top}[x:=2,y:=1]}{\rule8^\new} = \begin{rule} \r3 && \r1 \\ \hline 2_\bomb & ? & ? \end{rule}
+    \underset{A_{(A\setminus B)_\top}[x:=2,y:=1]}{\rule8^\new} = \begin{rule} \r3 && \r1 \\ \hline 2_\bomb & ? & ? \end{rule}
 \end{cases}
 $$
 
