@@ -156,7 +156,7 @@ And with that, we have a second level set completed.  Let's perform auto-run pas
 
 ## Level Set H12
 
-The second column of level sets introduces minimum (e.g. $2+$) and maximum (e.g. $0-$) clues.  In face, one of these first regions, $\r{0-}$ is effectively the same thing as its constant cousin, $\r{0}$.
+The second column of level sets introduces minimum (e.g. $2+$) and maximum (e.g. $0-$) clues.  In fact, one of these first regions, $\r{0-}$ is effectively the same thing as its constant cousin, $\r{0}$.
 
 $$
 \begin{rcases}
@@ -481,3 +481,689 @@ $$
 $$
 
 And that finally completes this level set.  Let's perform our auto-run passes, which will get us down to approximately 2000 levels away from our goal.
+
+## Level Set H13
+
+The third column of level sets introduces "or" clues (e.g. $\or12$, $\oror024$).  The first few levels involve creating basic rules for these clues.
+
+$$
+\begin{rcases}
+    \rule{H13.0_\alpha} = \begin{rule} \r{\or12} \\ \hline 1_\bomb \end{rule} \\
+    \rule{H13.0_\beta} = \begin{rule} \r{\or23} \\ \hline 2_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\oplus} := \begin{abstraction}{xa} \r{\or x{x+a}} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\oplus}[x:=1,a:=1]}{\rule{39}^\new} = \begin{rule}
+        \r{\or12} \\
+        \hline
+        1_\bomb
+    \end{rule} \\
+    \underset{A_{\top_\oplus}[x:=2,a:=1]}{\rule{40}^\new} = \begin{rule}
+        \r{\or23} \\ 
+        \hline 
+        2_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.2} = \begin{rule} \r{\or14} \\ \hline 1_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\oplus} := \begin{abstraction}{xa} \r{\or x{x+a}} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\oplus}[x:=1,a:=3]}{\rule{41}^\new} = \begin{rule}
+        \r{\or14} \\
+        \hline
+        1_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.3} = \begin{rule} \r{\or24} \\ \hline 2_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\oplus} := \begin{abstraction}{xa} \r{\or x{x+a}} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\oplus}[x:=2,a:=2]}{\rule{42}^\new} = \begin{rule}
+        \r{\or24} \\
+        \hline
+        2_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.4_\alpha} = \begin{rule} \r{\or02} \\ \hline 1_\sweep \end{rule}
+\end{rcases}
+\implies A_{\bot_\oplus} := \begin{abstraction}{a} \r{\or0{a+1}} \\ \hline a-_\sweep \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\bot_\oplus}[a:=1]}{\rule{43}^\new} = \begin{rule}
+        \r{\or02} \\
+        \hline
+        1-_\sweep
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.4_\beta} = \begin{rule} \r{\or13} \\ \hline 1_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\oplus} := \begin{abstraction}{xa} \r{\or x{x+a}} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\oplus}[x:=1,a:=2]}{\rule{44}^\new} = \begin{rule}
+        \r{\or13} \\
+        \hline
+        1_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.4_\gamma} = \begin{rule} \r{\or03} \\ \hline 2_\sweep \end{rule}
+\end{rcases}
+\implies A_{\bot_\oplus} := \begin{abstraction}{a} \r{\or0{a+1}} \\ \hline a-_\sweep \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\bot_\oplus}[a:=2]}{\rule{45}^\new} = \begin{rule}
+        \r{\or03} \\
+        \hline
+        2-_\sweep
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.9} = \begin{rule} \r{\or34} \\ \hline 3_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\oplus} := \begin{abstraction}{xa} \r{\or x{x+a}} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\oplus}[x:=3,a:=1]}{\rule{46}^\new} = \begin{rule}
+        \r{\or34} \\
+        \hline
+        3_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+Next, we'll get into our subtraction rules.
+
+$$
+\begin{rcases}
+    \rule{H13.14} = \begin{rule} \r{\or01} && \r1 \\ \hline 4_\sweep & 2 & 0 \end{rule}
+\end{rcases}
+\implies A_{(A_{\oplus_\downarrow}\subsetneq B)_\bot} := \begin{abstraction}{xa}
+    \r{\or x{x+a}} && \r{x+a} \\
+    \hline
+    ?_\sweep & ? & 0
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_{\oplus_\downarrow}\subsetneq B)_\bot}[x:=0,a:=1]}{\rule{47}^\new} = \begin{rule}
+        \r{\or01} && \r1 \\
+        \hline
+        ?_\sweep & ? & 0
+    \end{rule}
+\end{cases}
+$$
+
+This next level will have us create a rule between two "or" regions.  While we could create another subtraction rule, this may be a good opportunity to focus on the intersection.
+
+$$
+\begin{align*}
+\begin{rcases}
+    \rule{H13.17} = \begin{rule} \r{\or01} && \r{\or12} \\ \hline 3 & 2_\r1 & 0 \end{rule}
+\end{rcases}
+&\implies A_{A_{\oplus_\downarrow}\cap B_\oplus} = \begin{abstraction}{xyab}
+    \r{\or x{x+a}} && \r{\or{x+y+a}{x+y+a+b}} \\
+    \hline
+    ? & ?_\r{x+a} & y
+\end{abstraction} \\
+&\therefore \begin{cases}
+    \underset{A_{A_{\oplus_\downarrow}\cap B_\oplus}[x:=0,y:=0,a:=1,b:=1]}{\rule{48}^\new} = \begin{rule}
+        \r{\or01} && \r{\or12} \\
+        \hline
+        ? & ?_\r1 & 0
+    \end{rule}
+\end{cases}
+\end{align*}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.20} = \begin{rule} \r{\or25} \\ \hline 2_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\oplus} := \begin{abstraction}{xa} \r{\or x{x+a}} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\oplus}[x:=2,a:=3]}{\rule{49}^\new} = \begin{rule}
+        \r{\or25} \\
+        \hline
+        2_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.23_\alpha} = \begin{rule} \r{\or23} && \r1 \\ \hline 1_\bomb & 2 & 1 \end{rule}
+\end{rcases}
+\implies A_{(A_{\oplus_\downarrow}\setminus B)_\top} := \begin{abstraction}{xya}
+    \r{\or{x+y}{x+y+a}} && \r y \\
+    \hline
+    x_\bomb & ? & ?
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_{\oplus_\downarrow}\setminus B)_\top}[x:=1,y:=1,a:=1]}{\rule{50}^\new} = \begin{rule}
+        \r{\or23} && \r1 \\
+        \hline
+        1_\bomb & ? & ?
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.23_\beta} = \begin{rule} \r1 && \r{\or12} \\ \hline 1_\sweep & 2 & 0 \end{rule}
+\end{rcases}
+\implies A_{(A\subsetneq B_\oplus)_\bot} := \begin{abstraction}{xa}
+    \r x && \r{\or x{x+a}} \\
+    \hline
+    ?_\sweep & ? & 0
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A\subsetneq B_\oplus)_\bot}[x:=1,a:=1]}{\rule{51}^\new} = \begin{rule}
+        \r1 && \r{\or12} \\
+        \hline
+        ?_\sweep & ? & 0
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.24} = \begin{rule} \r{\or35} \\ \hline 3_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\oplus} := \begin{abstraction}{xa} \r{\or x{x+a}} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\oplus}[x:=3,a:=2]}{\rule{52}^\new} = \begin{rule}
+        \r{\or35} \\
+        \hline
+        3_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+This next level involves an almost-basic rule, what I call a "reduction".  In short, we end up reducing a more complex rule in a simpler one.  In this case, we'll transform an or region into a constant one.
+
+$$
+\begin{rcases}
+    \rule{H13.26_\alpha} = \begin{rule} \r{\or36} \\ \hline 4_\r3 \end{rule}
+\end{rcases}
+\implies A_{\oplus_\downarrow} := \begin{abstraction}{xa} \r{\or x{x+a+1}} \\ \hline (x+a)-_\r x \end{abstraction}
+\begin{cases}
+    \underset{A_{\oplus_\downarrow}[x:=3,a:=2]}{\rule{53}^\new} = \begin{rule} \r{\or36} \\ \hline 5-_\r3 \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.26_\beta} = \begin{rule} \r{\or14} \\ \hline 2_\r1 \end{rule}
+\end{rcases}
+\implies A_{\oplus_\downarrow} := \begin{abstraction}{xa} \r{\or x{x+a+1}} \\ \hline (x+a)-_\r x \end{abstraction}
+\begin{cases}
+    \underset{A_{\oplus_\downarrow}[x:=1,a:=2]}{\rule{54}^\new} = \begin{rule} \r{\or14} \\ \hline 3-_\r1 \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.28} = \begin{rule} \r{\or45} \\ \hline 4_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\oplus} := \begin{abstraction}{xa} \r{\or x{x+a}} \\ \hline x_\bomb \end{abstraction}
+\begin{cases}
+    \underset{A_{\top_\oplus}[x:=4,a:=1]}{\rule{55}^\new} = \begin{rule}
+        \r{\or45} \\
+        \hline
+        4_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+The next level involves making inferences about an or region based on an interecting one; however, we've created several or rules so far.  Before working on this level, let's perform an auto-run pass of the hex and square level sets.  This will unlock the triangle tab, so start an auto-run pass on those as well.  This will all get us to about 500 levels away from our goal; the end is in sight... right?
+
+But we're not there yet, so let's keep working on this level set.
+
+$$
+\begin{align*}
+\begin{rcases}
+    \rule{H13.31} = \begin{rule} \r{\or03} && \r2 \\ \hline 1_\r3 & 2_\r3 & 1 \end{rule}
+\end{rcases}
+&\implies A_{\oplus_\uparrow} := \begin{abstraction}{xya}
+    \r{\or x{x+a}} && \r{x+y+1} \\
+    \hline
+    ?_\r{x+a} & ?_\r{x+a} & y-
+\end{abstraction} \\
+&\therefore \begin{cases}
+    \underset{A_{\oplus_\uparrow}[x:=0,y:=1,a:=3]}{\rule{56}^\new} = \begin{rule}
+        \r{\or03} && \r2 \\
+        \hline
+        ?_\r3 & ?_\r3 & 1-
+    \end{rule}
+\end{cases}
+\end{align*}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.37_\alpha} = \begin{rule} \r{\or25} \\ \hline 3_\r2 \end{rule}
+\end{rcases}
+\implies A_{\oplus_\downarrow} := \begin{abstraction}{xa} 
+    \r{\or x{x+a+1}} \\ 
+    \hline 
+    (x+a)-_\r x 
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\oplus_\downarrow}[x:=2,a:=2]}{\rule{57}^\new} = \begin{rule}
+        \r{\or25} \\
+        \hline
+        4-_\r2
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{align*}
+\begin{rcases}
+    \rule{H13.37_\beta} = \begin{rule} \r{\or01} && \r{\or25} \\ \hline 2 & 2_\r1 & 1 \end{rule}
+\end{rcases}
+&\implies A_{A_\oplus\cap B_\oplus} = \begin{abstraction}{xyab}
+    \r{\or x{x+a}} && \r{\or{x+y+a}{x+y+a+b}} \\
+    \hline
+    ? & ?_\r{x+a} & y
+\end{abstraction} \\
+&\therefore \begin{cases}
+    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=1,a:=1,b:=3]}{\rule{58}^\new} = \begin{rule}
+        \r{\or01} && \r{\or25} \\
+        \hline
+        ? & ?_\r1 & 1
+    \end{rule}
+\end{cases}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\begin{rcases}
+    \rule{H13.39} = \begin{rule} \r{\or01} && \r{\or34} \\ \hline 1 & 2_\r1 & 2 \end{rule}
+\end{rcases}
+&\implies A_{A_\oplus\cap B_\oplus} = \begin{abstraction}{xyab}
+    \r{\or x{x+a}} && \r{\or{x+y+a}{x+y+a+b}} \\
+    \hline
+    ? & ?_\r{x+a} & y
+\end{abstraction} \\
+&\therefore \begin{cases}
+    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=2,a:=1,b:=1]}{\rule{59}^\new} = \begin{rule}
+        \r{\or01} && \r{\or34} \\
+        \hline
+        ? & ?_\r1 & 2
+    \end{rule}
+\end{cases}
+\end{align*}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.64} = \begin{rule} \r{\or47} \\ \hline 4_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\oplus} := \begin{abstraction}{xa} \r{\or x{x+a}} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\oplus}[x:=4,a:=3]}{\rule{60}^\new} = \begin{rule} \r{\or47} \\ \hline 4_\bomb \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{align*}
+\begin{rcases}
+    \rule{H13.82} = \begin{rule}
+        \r1 && \r1 \\
+        \hline
+        1 & 1_\sweep & 0 \\
+        1 & 0 & 1 & 0 & \r{\or12}
+    \end{rule}
+\end{rcases}
+&\implies A_{((A_1\cap B_1)\setminus C_\oplus)_\bot} := \begin{abstraction}{xa}
+    \r1 && \r1 \\
+    \hline
+    ? & ?_\sweep & ? \\
+    ? & ? & ? & x & \r{\or{x+1}{x+a+1}}
+\end{abstraction} \\
+&\therefore \begin{cases}
+    \underset{A_{((A_1\cap B_1)\setminus C_\oplus)_\bot}[x:=0,a:=1]}{\rule{61}^\new} = \begin{rule}
+        \r1 && \r1 \\
+        \hline
+        ? & ?_\sweep & ? \\
+        ? & ? & ? & 0 & \r{\or12}
+    \end{rule}
+\end{cases}
+\end{align*}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.84} = \begin{rule} \r{\or01} && \r2 \\ \hline 2_\r1 & 2_\r1 & 1 \end{rule}
+\end{rcases}
+\implies A_{\oplus_\uparrow} := \begin{abstraction}{xya}
+    \r{\or x{x+a}} && \r{x+y+1} \\
+    \hline
+    ?_\r{x+a} & ?_\r{x+a} & y-
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\oplus_\uparrow}[x:=0,y:=1,a:=1]}{\rule{62}^\new} = \begin{rule}
+        \r{\or01} && \r2 \\
+        \hline
+        ?_\r1 & ?_\r1 & 1-
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.92} = \begin{rule} \r{\or57} \\ \hline 5_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\oplus} := \begin{abstraction}{xa} \r{\or x{x+a}} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\oplus}[x:=5,a:=2]}{\rule{63}^\new} = \begin{rule}
+        \r{\or57} \\
+        \hline
+        5_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{align*}
+\begin{rcases}
+    \rule{H13.106} = \begin{rule} \r{\or01} && \r{\or13} \\ \hline 1 & 2_\r1 & 0 \end{rule}
+\end{rcases}
+&\implies A_{A_\oplus\cap B_\oplus} = \begin{abstraction}{xyab}
+    \r{\or x{x+a}} && \r{\or{x+y+a}{x+y+a+b}} \\
+    \hline
+    ? & ?_\r{x+a} & y
+\end{abstraction} \\
+&\therefore \begin{cases}
+    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=0,a:=1,b:=2]}{\rule{64}^\new} = \begin{rule}
+        \r{\or01} && \r{\or13} \\
+        \hline
+        ? & ?_\r1 & 0
+    \end{rule}
+\end{cases}
+\end{align*}
+$$
+
+$$
+\begin{rcases}
+    \rule{H13.109_\alpha} = \begin{rule} \r{\or13} \\ \hline 2_\r1 \end{rule}
+\end{rcases}
+\implies A_{\oplus_\downarrow} := \begin{abstraction}{xa} 
+        \r{\or x{x+a+1}} \\ 
+        \hline 
+        (x+a)-_\r x 
+    \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\oplus_\downarrow}[x:=1,a:=1]}{\rule{65}^\new} = \begin{rule}
+        \r{\or13} \\
+        \hline
+        2-_\r1
+    \end{rule}
+\end{cases}
+$$
+
+The next part of this level involves a four-region situation.  Again, while we could create a rule that addresses it, let's split it up so we might be able to reuse some of these intermediate steps.
+
+$$
+\begin{align*}
+\begin{rcases}
+    \rule{H13.109_\beta} = \begin{rule}
+        \r1 && \r{\or01} \\
+        \hline
+        0 & 0 & 1 \\
+        1 & 0 & 1 & 0 & \r1 \\
+        0 & 0 & 0 & 0 \\
+        1 & 0 & 1 & 1_\bomb & \r{\or23}
+    \end{rule}
+\end{rcases}
+&\to \begin{cases}
+    \rule{H13.109_\beta} = \begin{rule}
+        \r1 && \r{\or01} \\
+        \hline
+        1_\r{\or01} & 0 & 2_\r{\or01} \\
+        1 & 0 & 1 & 0 & \r1
+    \end{rule} \\
+    \rule{H13.109_\gamma} = \begin{rule}
+        \r{\or01} && \r{\or23} \\
+        \hline
+        1 & 2_\r1 & 1
+    \end{rule} \\
+    \rule{H13.109_\delta} = \begin{rule}
+        \r{\or23} && \r1 \\
+        \hline
+        1_\bomb & 2 & 0
+    \end{rule}
+\end{cases} \\
+&\implies \begin{cases}
+    A_{\leftrightsquigarrow_\oplus} := \begin{abstraction}{}
+        \r1 && \r{\or01} \\
+        \hline
+        ?_\r{\or01} & ? & ?_\r{\or01} \\
+        ? & ? & ? & 0 & \r1
+    \end{abstraction} \\
+    A_{A_\oplus\cap B_\oplus} := \begin{abstraction}{xyab}
+        \r{\or x{x+a}} && \r{\or{x+y+a}{x+y+a+b}} \\
+        \hline
+        ? & ?_\r{x+a} & y
+    \end{abstraction} \\
+    A_{(A_\oplus\setminus B)_\top} := \begin{abstraction}{xya}
+        \r{\or{x+y}{x+y+a}} && \r y \\
+        \hline
+        x_\bomb & ? & ?
+    \end{abstraction}
+\end{cases} \\
+&\therefore \begin{cases}
+    \underset{A_{\leftrightsquigarrow_\oplus}}{\rule{66}^\new} = \begin{rule}
+        \r1 && \r{\or01} \\
+        \hline
+        ?_\r{\or01} & ? & ?_\r{\or01} \\
+        ? & ? & ? & 0 & \r1
+    \end{rule} \\
+    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=1,a:=1,b:=1]}{\rule{67}^\new} = \begin{rule}
+        \r{\or01} && \r{\or23} \\
+        \hline
+        ? & ?_\r1 & 1
+    \end{rule} \\
+    \trigger{\underset{A_{(A_\oplus\setminus B)_\top}[x:=1,y:=1,a:=1]}{\rule{50}}}
+\end{cases}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\begin{rcases}
+    \rule{H13.112} = \begin{rule}
+        \r{\or01} && \r1 \\
+        \hline
+        1_\sweep & 0 & 2_\sweep \\
+        2 & 0 & 2 & 0 & \r{\or23}
+    \end{rule}
+\end{rcases}
+&\implies A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot} := \begin{abstraction}{xyzab}
+    \r{\or y{y+b}} && \r z \\
+    \hline
+    ?_\sweep & ? & ?_\sweep \\
+    ? & ? & ? & x & \r{\or{x+y+z+b}{x+y+z+a+b}}
+\end{abstraction} \\
+&\therefore \begin{cases}
+    \underset{A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot}[x:=0,y:=0,z:=1,a:=1,b:=1]}{\rule{68}^\new} = \begin{rule}\begin{rule}
+        \r{\or01} && \r1 \\
+        \hline
+        ?_\sweep & ? & ?_\sweep \\
+        ? & ? & ? & 0 & \r{\or23}
+    \end{rule}
+    \end{rule}
+\end{cases}
+\end{align*}
+$$
+
+Okay, these levels are getting convoluted.  We can try another set of auto-run passes, but that still only gets us to about 270 levels away.  We need to make faster progress, and the next column may do that for us.  Let's leave this level set for now and come back to it later.
+
+## Level Set H14
+
+The fourth column of level sets introduces parity (e.g. $\parity2$), "not" (e.g. $!4$), and three-value "or" (e.g. $\oror135$) clues.  As usual, the first few levels involve creating basic logic rules for these new clues.
+
+$$
+\begin{rcases}
+    \rule{H14.0_\alpha} = \begin{rule} \r{\parity1} \\ \hline 1_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_{2^*}} := \begin{abstraction}{x} \r{\parity x} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_{2^*}}[x:=1]}{\rule{69}^\new} = \begin{rule}
+        \r{\parity1} \\
+        \hline
+        1_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H14.0_\beta} = \begin{rule} \r{2^*} \\ \hline 1_\sweep \end{rule}
+\end{rcases}
+\implies A_{\bot_{2^*}} := \begin{abstraction}{} \r{2^*} \\ \hline 1_\sweep \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\bot_{2^*}}}{\rule{70}^\new} = \begin{rule}
+        \r{2^*} \\
+        \hline
+        1_\sweep
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H14.0_\gamma} = \begin{rule} \r{!0} \\ \hline 1_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\lnot} := \begin{abstraction}{} \r{!0} \\ \hline 1_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\lnot}}{\rule{71}^\new} = \begin{rule} \r{!0} \\ \hline 1_\bomb \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H14.1} = \begin{rule} \r{!1} \\ \hline 1_\sweep \end{rule}
+\end{rcases}
+\implies A_{\bot_\lnot} := \begin{abstraction}{} \r{!1} \\ \hline 1_\sweep \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\bot_\lnot}}{\rule{72}^\new} = \begin{rule} \r{!1} \\ \hline 1_\sweep \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H14.2} = \begin{rule} \r{\parity3} \\ \hline 3_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_{2^*}} := \begin{abstraction}{x} \r{\parity x} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_{2^*}}[x:=3]}{\rule{73}^\new} = \begin{rule}
+        \r{\parity3} \\
+        \hline
+        3_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H14.3} = \begin{rule} \r{\parity4} \\ \hline 4_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_{2^*}} := \begin{abstraction}{x} \r{\parity x} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_{2^*}}[x:=4]}{\rule{74}^\new} = \begin{rule}
+        \r{\parity4} \\
+        \hline
+        4_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H14.4_\alpha} = \begin{rule} \r{\parity2} \\ \hline 2_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_{2^*}} := \begin{abstraction}{x} \r{\parity x} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_{2^*}}[x:=2]}{\rule{75}^\new} = \begin{rule}
+        \r{\parity2} \\
+        \hline
+        2_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H14.4_\beta} = \begin{rule} \r{\oror234} \\ \hline 2_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_{\oplus\oplus}} := \begin{abstraction}{xa}
+    \r{\oror x{x+a}{x+2a}} \\
+    \hline
+    x_\bomb
+\end{abstraction}
+\therefore \begin{rcases}
+    \underset{A_{\top_{\oplus\oplus}}[x:=2,a:=1]}{\rule{76}^\new} = \begin{rule}
+        \r{\oror234} \\
+        \hline
+        2_\bomb
+    \end{rule}
+\end{rcases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H14.8} = \begin{rule} \r{\oror024} \\ \hline 1_\sweep \end{rule}
+\end{rcases}
+\implies A_{\bot_{\oplus\oplus}} := \begin{abstraction}{a}
+    \r{\oror 0{a+1}{2a+2}} \\
+    \hline
+    a-_\sweep
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\bot_{\oplus\oplus}}[a:=1]}{\rule{77}^\new} = \begin{rule}
+        \r{\oror024} \\
+        \hline
+        1-_\bomb
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{H14.10} = \begin{rule} \r{\oror123} \\ \hline 1_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_{\oplus\oplus}} := \begin{abstraction}{xa}
+    \r{\oror x{x+a}{x+2a}} \\
+    \hline
+    x_\bomb
+\end{abstraction}
+\therefore \begin{rcases}
+    \underset{A_{\top_{\oplus\oplus}}[x:=1,a:=1]}{\rule{78}^\new} = \begin{rule}
+        \r{\oror123} \\
+        \hline
+        1_\bomb
+    \end{rule}
+\end{rcases}
+$$
+
+With this level complete, perform another auto-run pass on the three tabs.  This will _finally_ push us past the threashold and unlock our first variable, moving us on to phase 2!
