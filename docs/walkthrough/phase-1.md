@@ -339,13 +339,13 @@ $$
 \begin{rcases}
     \rule{H12.40_\alpha} = \begin{rule} \r3 && \r{1-} \\ \hline 2_\bomb & 2 & 2 \end{rule}
 \end{rcases}
-\implies A_{(A\setminus B_<)_\top} := \begin{abstraction}{xy}
+\implies A_{(A\setminus B_\leq)_\top} := \begin{abstraction}{xy}
     \r{x+y} && \r{y-} \\
     \hline
     x_\bomb & ? & ?
 \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{(A\setminus B_<)_\top}[x:=2,y:=1]}{\rule{31}^\new} = \begin{rule}
+    \underset{A_{(A\setminus B_\leq)_\top}[x:=2,y:=1]}{\rule{31}^\new} = \begin{rule}
         \r3 && \r{1-} \\
         \hline
         2_\bomb & ? & ?
@@ -357,13 +357,13 @@ $$
 \begin{rcases}
     \rule{H12.40_\beta} = \begin{rule} \r{1-} && \r1 \\ 2_\sweep & 2 & 0 \end{rule}
 \end{rcases}
-\implies A_{(A_\lt\setminus B)_\bot} := \begin{abstraction}{x}
+\implies A_{(A_\leq\subsetneq B)_\bot} := \begin{abstraction}{x}
     \r{x-} && \r x \\
     \hline
     ?_\sweep & ? & 0
 \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{(A_\lt\setminus B)_\bot}[x:=1]}{\rule{32}^\new} = \begin{rule}
+    \underset{A_{(A_\leq\subsetneq B)_\bot}[x:=1]}{\rule{32}^\new} = \begin{rule}
         \r{1-} && \r1 \\
         \hline
         ?_\sweep & ? & 0
@@ -375,13 +375,13 @@ $$
 \begin{rcases}
     \rule{H12.44} = \begin{rule} \r2 && \r{1-} \\ \hline 1_\bomb & 2 & 2 \end{rule}
 \end{rcases}
-\implies A_{(A\setminus B_<)_\top} := \begin{abstraction}{xy}
+\implies A_{(A\setminus B_\leq)_\top} := \begin{abstraction}{xy}
     \r{x+y} && \r{y-} \\
     \hline
     x_\bomb & ? & ?
 \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{(A\setminus B_<)_\top}[x:=1,y:=1]}{\rule{33}^\new} = \begin{rule}
+    \underset{A_{(A\setminus B_\leq)_\top}[x:=1,y:=1]}{\rule{33}^\new} = \begin{rule}
         \r2 && \r{1-} \\
         \hline
         1_\bomb & ? & ?
@@ -421,13 +421,13 @@ $$
 \begin{rcases}
     \rule{H12.103} = \begin{rule} \r5 && \r{1-} \\ \hline 4_\bomb & 2 & 1 \end{rule}
 \end{rcases}
-\implies A_{(A\setminus B_<)_\top} := \begin{abstraction}{xy}
+\implies A_{(A\setminus B_\leq)_\top} := \begin{abstraction}{xy}
     \r{x+y} && \r{y-} \\
     \hline
     x_\bomb & ? & ?
 \end{abstraction}
 \begin{cases}
-    \underset{A_{(A\setminus B_<)_\top}[x:=4,y:=1]}{\rule{36}^\new} = \begin{rule}
+    \underset{A_{(A\setminus B_\leq)_\top}[x:=4,y:=1]}{\rule{36}^\new} = \begin{rule}
         \r5 && \r{1-} \\
         \hline
         4_\bomb & ? & ?
@@ -445,18 +445,18 @@ $$
         1 & 0 & 1 & 3 & \r{4+}
     \end{rule}
 \end{rcases}
-&\implies A_{((A_1\cap{B_{\leq1}})\setminus C_\gt)_\bot} := \begin{abstraction}{x}
+&\implies A_{((A_1\cap{B_{\leq1}})\setminus C_\geq)_\bot} := \begin{abstraction}{x}
     \r1 && \r{1-} \\
     \hline
     ? & ?_\sweep & ? \\
     ? & ? & ? & \or x{x+1} & \r{(x+2)+}
 \end{abstraction} \\
 &\therefore \begin{cases}
-    \underset{A_{((A_1\cap{B_{\leq1}})\setminus C_\gt)_\bot}[x:=2]}{\rule{37}^\new} = \begin{rule}
+    \underset{A_{((A_1\cap{B_{\leq1}})\setminus C_\geq)_\bot}[x:=2]}{\rule{37}^\new} = \begin{rule}
         \r1 && \r{1-} \\
         \hline
         ? & ?_\sweep & ? \\
-        ? & ? & ? & 3 & \r{4+}
+        ? & ? & ? & \or23 & \r{4+}
     \end{rule}
 \end{cases}
 \end{align*}
@@ -596,13 +596,13 @@ $$
 \begin{rcases}
     \rule{H13.14} = \begin{rule} \r{\or01} && \r1 \\ \hline 4_\sweep & 2 & 0 \end{rule}
 \end{rcases}
-\implies A_{(A_{\oplus_\downarrow}\subsetneq B)_\bot} := \begin{abstraction}{xa}
+\implies A_{(A_\oplus\subsetneq B)_\bot} := \begin{abstraction}{xa}
     \r{\or x{x+a}} && \r{x+a} \\
     \hline
     ?_\sweep & ? & 0
 \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{(A_{\oplus_\downarrow}\subsetneq B)_\bot}[x:=0,a:=1]}{\rule{47}^\new} = \begin{rule}
+    \underset{A_{(A_\oplus\subsetneq B)_\bot}[x:=0,a:=1]}{\rule{47}^\new} = \begin{rule}
         \r{\or01} && \r1 \\
         \hline
         ?_\sweep & ? & 0
@@ -650,13 +650,13 @@ $$
 \begin{rcases}
     \rule{H13.23_\alpha} = \begin{rule} \r{\or23} && \r1 \\ \hline 1_\bomb & 2 & 1 \end{rule}
 \end{rcases}
-\implies A_{(A_{\oplus_\downarrow}\setminus B)_\top} := \begin{abstraction}{xya}
+\implies A_{(A_\oplus\setminus B)_\top} := \begin{abstraction}{xya}
     \r{\or{x+y}{x+y+a}} && \r y \\
     \hline
     x_\bomb & ? & ?
 \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{(A_{\oplus_\downarrow}\setminus B)_\top}[x:=1,y:=1,a:=1]}{\rule{50}^\new} = \begin{rule}
+    \underset{A_{(A_\oplus\setminus B)_\top}[x:=1,y:=1,a:=1]}{\rule{50}^\new} = \begin{rule}
         \r{\or23} && \r1 \\
         \hline
         1_\bomb & ? & ?
@@ -1005,12 +1005,11 @@ $$
     ? & ? & ? & x & \r{\or{x+y+z+b}{x+y+z+a+b}}
 \end{abstraction} \\
 &\therefore \begin{cases}
-    \underset{A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot}[x:=0,y:=0,z:=1,a:=1,b:=1]}{\rule{68}^\new} = \begin{rule}\begin{rule}
+    \underset{A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot}[x:=0,y:=0,z:=1,a:=1,b:=1]}{\rule{68}^\new} = \begin{rule}
         \r{\or01} && \r1 \\
         \hline
         ?_\sweep & ? & ?_\sweep \\
         ? & ? & ? & 0 & \r{\or23}
-    \end{rule}
     \end{rule}
 \end{cases}
 \end{align*}
