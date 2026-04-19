@@ -136,10 +136,10 @@ Rather than creating a separate rule for every size of empty region, let's reduc
 
 $$
 \begin{rcases}
-    \rule0 = &\begin{rule} \r0 \\ \hline 1_\sweep \end{rule} \\
-    \rule1 = &\begin{rule} \r0 \\ \hline 2_\sweep \end{rule} \\
-    \rule6 = &\begin{rule} \r0 \\ \hline 3_\sweep \end{rule} \\
-    &\begin{rule} \r4 \\ \hline 4_\sweep \end{rule}
+    \rule0 = \begin{rule} \r0 \\ \hline 1_\sweep \end{rule} \\
+    \rule1 = \begin{rule} \r0 \\ \hline 2_\sweep \end{rule} \\
+    \rule6 = \begin{rule} \r0 \\ \hline 3_\sweep \end{rule} \\
+    \rule{H11.20} = \begin{rule} \r4 \\ \hline 4_\sweep \end{rule}
 \end{rcases}
 \implies A_\bot := \begin{abstraction}{} \r0 \\ \hline ?_\sweep \end{abstraction}
 \therefore \begin{cases}

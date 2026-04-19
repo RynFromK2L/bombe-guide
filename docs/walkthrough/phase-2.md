@@ -124,7 +124,7 @@ $$
         \hline
         ?_\r{\v X{+2}} & ?_\r{\v X{+2}} & 1-
     \end{rule} \\
-    \underset{A_{\oplus_\uparrow}[x:=X,y:=1,a:=3]}{\rule{57}^\new} = \begin{rule}
+    \underset{A_{\oplus_\uparrow}[x:=X,y:=1,a:=3]}{\rule{60}^\new} = \begin{rule}
         \r{\or X{\v X{+3}}} && \r{\v X{+2}} \\
         \hline
         ?_\r{\v X{+3}} & ?_\r{\v X{+3}} & 1-
@@ -137,7 +137,7 @@ For these abstrations with $y$ or $z$ parameters, we can select which variable w
 $$
 \begin{align*}
 \begin{rcases}
-    \rule{??} = \begin{rule} \r{\or01} && \r{\or12} \\ \hline ? & ?_\r1 & 0 \end{rule} \\
+    \rule{36} = \begin{rule} \r{\or01} && \r{\or12} \\ \hline ? & ?_\r1 & 0 \end{rule} \\
     \rule{42} = \begin{rule} \r{\or01} && \r{\or25} \\ \hline ? & ?_\r1 & 1 \end{rule} \\
     \rule{43} = \begin{rule} \r{\or01} && \r{\or34} \\ \hline ? & ?_\r1 & 2 \end{rule} \\
     \rule{46} = \begin{rule} \r{\or01} && \r{\or13} \\ \hline ? & ?_\r1 & 0 \end{rule} \\
@@ -149,22 +149,22 @@ $$
     ? & ?_\r{x+a} & y
 \end{abstraction} \\
 &\therefore \begin{cases}
-    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=X,a:=1,b:=1]}{\rule{42}^\updated} = \begin{rule}
+    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=X,a:=1,b:=1]}{\rule{36}^\updated} = \begin{rule}
         \r{\or01} && \r{\or{\v X{+1}}{\v X{+2}}} \\
         \hline
         ? & ?_\r1 & X
     \end{rule} \\
-    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=X,a:=1,b:=2]}{\rule{43}^\updated} = \begin{rule}
+    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=X,a:=1,b:=2]}{\rule{42}^\updated} = \begin{rule}
         \r{\or01} && \r{\or{\v X{+1}}{\v X{+3}}} \\
         \hline
         ? & ?_\r1 & X
     \end{rule} \\
-    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=X,a:=1,b:=3]}{\rule{46}^\updated} = \begin{rule}
+    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=X,a:=1,b:=3]}{\rule{43}^\updated} = \begin{rule}
         \r{\or01} && \r{\or{\v X{+1}}{\v X{+4}}} \\
         \hline
         ? & ?_\r1 & X
     \end{rule} \\
-    \remove{\rule{48}, \rule{??}}
+    \remove{\rule{48}, \rule{46}}
 \end{cases}
 \end{align*}
 $$
@@ -282,8 +282,8 @@ $$
 \implies A_{(A_\oplus\setminus B)_\top} := \begin{abstraction}{xya} \r{\or{x+y}{x+y+a}} && \r y \\ \hline x_\bomb & ? & ? \end{abstraction}
 \therefore \begin{cases}
     \underset{A_{(A_\oplus\setminus B)_\top}[x:=X,y:=1,a:=1]}{\rule{28}^\updated} = \begin{rule} \r{\or{\v X{+1}}{\v X{+2}}} && \r1 \\ \hline X_\bomb & ? & ? \end{rule} \\
-    \underset{A_{(A_\oplus\setminus B)_\top}[x:=X,y:=1,a:=2]}{\rule{46?}^\new} = \begin{rule} \r{\or{\v X{+1}}{\v X{+3}}} && \r1 \\ \hline X_\bomb & ? & ? \end{rule} \\
-    \underset{A_{(A_\oplus\setminus B)_\top}[x:=X,y:=1,a:=2]}{\rule{47?}^\new} = \begin{rule} \r{\or{\v X{+1}}{\v X{+4}}} && \r1 \\ \hline X_\bomb & ? & ? \end{rule}
+    \underset{A_{(A_\oplus\setminus B)_\top}[x:=X,y:=1,a:=2]}{\rule{50}^\new} = \begin{rule} \r{\or{\v X{+1}}{\v X{+3}}} && \r1 \\ \hline X_\bomb & ? & ? \end{rule} \\
+    \underset{A_{(A_\oplus\setminus B)_\top}[x:=X,y:=1,a:=2]}{\rule{51}^\new} = \begin{rule} \r{\or{\v X{+1}}{\v X{+4}}} && \r1 \\ \hline X_\bomb & ? & ? \end{rule}
 \end{cases}
 $$
 
@@ -294,20 +294,20 @@ $$
 \implies A_{(A_\oplus\subsetneq B)_\bot} := \begin{abstraction}{xa} \r{\or x{x+a}} && \r{x+a} \\ \hline ?_\sweep & ? & 0 \end{abstraction}
 \therefore \begin{cases}
     \underset{A_{(A_\oplus\subsetneq B)_\bot}[x:=X,a:=1]}{\rule{26}^\updated} = \begin{rule} \r{\or X{\v X{+1}}} && \r{\v X{+1}} \\ \hline ?_\sweep & ? & 0 \end{rule} \\
-    \underset{A_{(A_\oplus\subsetneq B)_\bot}[x:=X,a:=2]}{\rule{48?}^\new} = \begin{rule} \r{\or X{\v X{+2}}} && \r{\v X{+2}} \\ \hline ?_\sweep & ? & 0 \end{rule} \\
-    \underset{A_{(A_\oplus\subsetneq B)_\bot}[x:=X,a:=3]}{\rule{49?}^\new} = \begin{rule} \r{\or X{\v X{+3}}} && \r{\v X{+3}} \\ \hline ?_\sweep & ? & 0 \end{rule}
+    \underset{A_{(A_\oplus\subsetneq B)_\bot}[x:=X,a:=2]}{\rule{52}^\new} = \begin{rule} \r{\or X{\v X{+2}}} && \r{\v X{+2}} \\ \hline ?_\sweep & ? & 0 \end{rule} \\
+    \underset{A_{(A_\oplus\subsetneq B)_\bot}[x:=X,a:=3]}{\rule{53}^\new} = \begin{rule} \r{\or X{\v X{+3}}} && \r{\v X{+3}} \\ \hline ?_\sweep & ? & 0 \end{rule}
 \end{cases}
 $$
 
 $$
 \begin{rcases}
-    \rule{28} = \begin{rule} \r1 && \r{\or12} \\ \hline ?_\sweep & ? & 0 \end{rule}
+    \rule{29} = \begin{rule} \r1 && \r{\or12} \\ \hline ?_\sweep & ? & 0 \end{rule}
 \end{rcases}
 \implies A_{(A\subsetneq B_\oplus)_\bot} := \begin{abstraction}{xa} \r x && \r{\or x{x+a}} \\ \hline ?_\sweep & ? & 0 \end{abstraction}
 \therefore \begin{cases}
-    \underset{A_{(A\subsetneq B_\oplus)_\bot}[x:=X,a:=1]}{\rule{28}^\updated} = \begin{rule} \r X && \r{\or X{\v X{+1}}} \\ \hline ?_\sweep & ? & 0 \end{rule} \\
-    \underset{A_{(A\subsetneq B_\oplus)_\bot}[x:=X,a:=2]}{\rule{50?}^\new} = \begin{rule} \r X && \r{\or X{\v X{+2}}} \\ \hline ?_\sweep & ? & 0 \end{rule} \\
-    \underset{A_{(A\subsetneq B_\oplus)_\bot}[x:=X,a:=3]}{\rule{51?}^\new} = \begin{rule} \r X && \r{\or X{\v X{+3}}} \\ \hline ?_\sweep & ? & 0 \end{rule}
+    \underset{A_{(A\subsetneq B_\oplus)_\bot}[x:=X,a:=1]}{\rule{29}^\updated} = \begin{rule} \r X && \r{\or X{\v X{+1}}} \\ \hline ?_\sweep & ? & 0 \end{rule} \\
+    \underset{A_{(A\subsetneq B_\oplus)_\bot}[x:=X,a:=2]}{\rule{54}^\new} = \begin{rule} \r X && \r{\or X{\v X{+2}}} \\ \hline ?_\sweep & ? & 0 \end{rule} \\
+    \underset{A_{(A\subsetneq B_\oplus)_\bot}[x:=X,a:=3]}{\rule{55}^\new} = \begin{rule} \r X && \r{\or X{\v X{+3}}} \\ \hline ?_\sweep & ? & 0 \end{rule}
 \end{cases}
 $$
 
@@ -416,7 +416,7 @@ $$
 $$
 \begin{align*}
 \begin{rcases}
-    \rule{33} = \begin{rule}
+    \rule{34} = \begin{rule}
         \r1 && \r1 \\
         \hline
         ? & ?_\sweep & ? \\
@@ -430,19 +430,19 @@ $$
     ? & ? & ? & x & \r{\or{x+1}{x+a+1}}
 \end{abstraction} \\
 &\therefore \begin{cases}
-    \underset{A_{((A_1\cap B_1)\setminus C_\oplus)_\bot}[x:=X,a:=1]}{\rule{33}^\updated} = \begin{rule}
+    \underset{A_{((A_1\cap B_1)\setminus C_\oplus)_\bot}[x:=X,a:=1]}{\rule{34}^\updated} = \begin{rule}
         \r1 && \r1 \\
         \hline
         ? & ?_\sweep & ? \\
         ? & ? & ? & X & \r{\or{\v X{+1}}{\v x{+2}}}
     \end{rule} \\
-    \underset{A_{((A_1\cap B_1)\setminus C_\oplus)_\bot}[x:=X,a:=2]}{\rule{52}^\new} = \begin{rule}
+    \underset{A_{((A_1\cap B_1)\setminus C_\oplus)_\bot}[x:=X,a:=2]}{\rule{55}^\new} = \begin{rule}
         \r1 && \r1 \\
         \hline
         ? & ?_\sweep & ? \\
         ? & ? & ? & X & \r{\or{\v X{+1}}{\v x{+3}}}
     \end{rule} \\
-    \underset{A_{((A_1\cap B_1)\setminus C_\oplus)_\bot}[x:=X,a:=3]}{\rule{53}^\new} = \begin{rule}
+    \underset{A_{((A_1\cap B_1)\setminus C_\oplus)_\bot}[x:=X,a:=3]}{\rule{56}^\new} = \begin{rule}
         \r1 && \r1 \\
         \hline
         ? & ?_\sweep & ? \\
