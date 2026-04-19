@@ -14,6 +14,7 @@ window.MathJax = {
       sweep: "{🧹}",
       bomb: "{💣}",
       rule: ['R_{#2}{#1}', 2, ''],
+      abstraction: ['A_{#1}', 1],
       new: ['\\text{new}'],
       updated: ['\\text{updated}'],
       remove: ['\\text{remove } \\left\\lbrace #1 \\right\\rbrace', 1],
