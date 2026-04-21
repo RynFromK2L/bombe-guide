@@ -519,3 +519,111 @@ $$
 $$
 
 Miraculously, these hybrid abstraction rules trim over about 50 more levels off our list.  There's still a ways to go, so we should probably get back to the _actual_ game.
+
+## Level Set S11
+
+We're getting back to basics.
+
+$$
+\begin{rcases}
+    \rule{S11.66} = &\begin{rule}
+        \r3 && \r2 \\
+        \hline
+        3 & 3 & 0
+    \end{rule}
+\end{rcases}
+\implies \abstraction{A\subsetneq B} := \begin{abstraction}{xy}
+    \r{x+y} && \r y \\
+    \hline
+    (x+1)+_\r x & ? & 0
+\end{abstraction} \\
+\therefore \begin{cases}
+    \underset{\abstraction{A\subsetneq B}[x:=X,y:=2]}{\rule{59}^\new} = &\begin{rule}
+        \r{\v X{+2}} && \r2 \\
+        \hline
+        \v X{+1}+_\r X & ? & 0
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{rcases}
+    \rule{S11.98} = &\begin{rule}
+        \r4 && \r2 \\
+        \hline
+        2 & 3 & 0
+    \end{rule}
+\end{rcases}
+\implies \abstraction{A\setminus B} := \begin{abstraction}{xy}
+    \r{x+y} && \r y \\
+    \hline
+    x_\bomb & ? & ?
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{\abstraction{A\setminus B}[x:=X,y:=2]}{\rule{60}^\new} = &\begin{rule}
+        \r{\v X{+2}} && \r2 \\
+        \hline
+        X_\bomb & ? & ?
+    \end{rule}
+\end{cases}
+$$
+
+$$
+\begin{align*}
+\begin{rcases}
+    \rule{S11.138} = &\begin{rule}
+        \r1 && \r1 \\
+        \hline
+        0 & 1 & 0 \\
+        1 & 1 & 1 & 1 & \r1
+    \end{rule}
+\end{rcases}
+&\implies \abstraction{((A_1\Delta B_1)\cap C_1)_\bot}^\new := \begin{abstraction}{}
+    \r1 && \r1 \\
+    \hline
+    0 & ? & 0 \\
+    ?_\sweep & ? & ?_\sweep & ? & \r1
+\end{abstraction} \\
+&\therefore \begin{cases}
+    \underset{\abstraction{((A_1\Delta B_1)\cap C_1)_\bot}}{\rule{61}^\new} = &\begin{rule}
+        \r1 && \r1 \\
+        \hline
+        0 & ? & 0 \\
+        ?_\sweep & ? & ?_\sweep & ? & \r1
+    \end{rule}
+\end{cases}
+\end{align*}
+$$
+
+These three rules finish out the level set.  Let's perform our usual auto-run passes before moving onto the next level set.
+
+## Level Set S12
+
+We have a bit more cleanup to do as we continue across the first row of square level sets.
+
+$$
+\begin{align*}
+\begin{rcases}
+    \rule{S12.111} = &\begin{rule}
+        \r{1+} && \r{1+} \\
+        \hline
+        0 & 0 & 0 \\
+        2 & 0 & 2 & 1 & \r2
+    \end{rule}
+\end{rcases}
+&\implies \abstraction{(A\setminus(A_\oplus \cup B_\oplus))_\bot}^\new := \begin{abstraction}{xy}
+    \r{x+} && \r{y+} \\
+    \hline
+    0 & 0 & 0 \\
+    ? & 0 & ? & ?_\sweep & \r{x+y}
+\end{abstraction} \\
+&\therefore \begin{cases}
+    \underset{\abstraction{(A\setminus(A_\oplus \cup B_\oplus))_\bot}[x:=X,y:=1]}{\rule{62}^\new} = &\begin{rule}
+        \r{X+} && \r{1+} \\
+        \hline
+        0 & 0 & 0 \\
+        ? & 0 & ? & ?_\sweep & \r{\v X{+1}}
+    \end{rule}
+\end{cases}
+\end{align*}
+$$

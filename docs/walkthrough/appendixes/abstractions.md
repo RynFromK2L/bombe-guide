@@ -221,6 +221,24 @@ A_{((A_1\cap B_1)\setminus C_\oplus)_\bot} := \begin{abstraction}{xa}
 $$
 
 $$
+\abstraction{((A_1\Delta B_1)\cap C_1)_\bot} := \begin{abstraction}{}
+    \r1 && \r1 \\
+    \hline
+    0 & ? & 0 \\
+    ?_\sweep & ? & ?_\sweep & ? & \r1
+\end{abstraction}
+$$
+
+$$
+\abstraction{(A\setminus(A_\oplus \cup B_\oplus))_\bot} := \begin{abstraction}{xy}
+    \r{x+} && \r{y+} \\
+    \hline
+    0 & 0 & 0 \\
+    ? & 0 & ? & ?_\sweep & \r{x+y}
+\end{abstraction}
+$$
+
+$$
 A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot} := \begin{abstraction}{xyzab}
     \r{\or y{y+b}} && \r z \\
     \hline
