@@ -475,13 +475,13 @@ $$
         ?_\sweep & ? & ?_\sweep \\
         ? & ? & ? & X & \r{\or{\v X{+2}}{\v X{+3}}}
     \end{rule} \\
-    \underset{A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot}[x:=X,y:=0,z:=1,a:=2,b:=1]}{\rule{54}^\new} = \begin{rule}
+    \underset{A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot}[x:=X,y:=0,z:=1,a:=2,b:=1]}{\rule{57}^\new} = \begin{rule}
         \r{\or01} && \r1 \\
         \hline
         ?_\sweep & ? & ?_\sweep \\
         ? & ? & ? & X & \r{\or{\v X{+2}}{\v X{+4}}}
     \end{rule} \\
-    \underset{A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot}[x:=X,y:=0,z:=1,a:=3,b:=1]}{\rule{55}^\new} = \begin{rule}
+    \underset{A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot}[x:=X,y:=0,z:=1,a:=3,b:=1]}{\rule{58}^\new} = \begin{rule}
         \r{\or01} && \r1 \\
         \hline
         ?_\sweep & ? & ?_\sweep \\
