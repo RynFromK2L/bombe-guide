@@ -1,0 +1,2016 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://rynfromk2l.github.io/bombe-guide/walkthrough/phase-2/">
+      
+      
+        <link rel="prev" href="../phase-1/">
+      
+      
+        <link rel="next" href="../appendixes/abstractions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Phase 2 (1-Variable Rules) - RynFromK2L's Bombe Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#phase-2-abstraction-at-last" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RynFromK2L&#39;s Bombe Guide" class="md-header__button md-logo" aria-label="RynFromK2L's Bombe Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RynFromK2L's Bombe Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Phase 2 (1-Variable Rules)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About This Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../convensions/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Guide Convensions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../blog/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../theory/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Theory
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Walkthrough
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RynFromK2L&#39;s Bombe Guide" class="md-nav__button md-logo" aria-label="RynFromK2L's Bombe Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RynFromK2L's Bombe Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About This Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../convensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide Convensions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../blog/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/category/general/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/category/personal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Personal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/category/walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authors
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Authors
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/author/rynfromk2l/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ryn (RynFromK2L)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../theory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/1-cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/2-clues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Clues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Walkthrough
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 0 (Walkthrough)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 (Static Rules)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 (1-Variable Rules)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 (1-Variable Rules)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rule-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-set-s11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level Set S11
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-set-s12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level Set S12
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendixes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendixes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendixes/abstractions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstractions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    About This Guide
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Walkthrough
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="phase-2-abstraction-at-last">Phase 2: Abstraction at Last!</h1>
+<p>With our first variable, <span class="arithmatex">\(X\)</span> (Chi), unlocked, we can finally start consolidating our rules to better follow our abstractions.  There are cases where we won't be able to generalize rules, such as for different "constant" values in an abstration (e.g. <span class="arithmatex">\(A_{\top_\oplus} := \begin{abstraction}{xa} \r{\or x{x+a}} \\ \hline x_\bomb \end{abstraction}\)</span>), and we may need multiple rules if we need more than one "variable" value (e.g. <span class="arithmatex">\(A_{(A\setminus B)_\top} := \begin{abstraction}{xy} \r{x+y} &amp;&amp; \r y \\ \hline x_\bomb &amp; ? &amp; ? \end{abstraction}\)</span>).  Still, let's see what we can clean up!</p>
+<h2 id="rule-cleanup">Rule Cleanup</h2>
+<p>First we'll start with our basic abstractions.  The sweeping rules are already fully generalized (e.g. <span class="arithmatex">\(\rule0 = A_\bot, \rule{19} = A_{\bot_\leq}\)</span>), but we can clean up a the bomb rules.</p>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule1 = \begin{rule} \r1 \\ \hline 1_\bomb \end{rule} \\
+    \rule2 = \begin{rule} \r2 \\ \hline 2_\bomb \end{rule} \\
+    \rule3 = \begin{rule} \r3 \\ \hline 3_\bomb \end{rule} \\
+    \rule4 = \begin{rule} \r4 \\ \hline 4_\bomb \end{rule} \\
+    \rule5 = \begin{rule} \r5 \\ \hline 5_\bomb \end{rule} \\
+    \rule{17} = \begin{rule} \r6 \\ \hline 6_\bomb \end{rule}
+\end{rcases}
+\implies A_\top := \begin{abstraction}{x} \r x \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_\top[x:=X]}{\rule1^\updated} = \begin{rule} \r X \\ \hline X_\bomb \end{rule} \\
+    \remove{\rule{17}, \rule5, \rule4, \rule3, \rule2}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{15} = \begin{rule} \r{2+} \\ \hline 2_\bomb \end{rule} \\
+    \rule{16} = \begin{rule} \r{1+} \\ \hline 1_\bomb \end{rule} \\
+    \rule{18} = \begin{rule} \r{3+} \\ \hline 3_\bomb \end{rule} \\
+    \rule{22} = \begin{rule} \r{5+} \\ \hline 5_\bomb \end{rule} \\
+    \rule{30} = \begin{rule} \r{4+} \\ \hline 4_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\geq} := \begin{abstraction}{x} \r{x+} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\geq}[x:=X]}{\rule{15}^\updated} = \begin{rule} \r{X+} \\ \hline X_\bomb \end{rule} \\
+    \remove{\rule{30}, \rule{22}, \rule{18},\rule{16}}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{30} = \begin{rule} \r{\or12} \\ \hline 1_\bomb \end{rule} \\
+    \rule{31} = \begin{rule} \r{\or23} \\ \hline 2_\bomb \end{rule} \\
+    \rule{32} = \begin{rule} \r{\or14} \\ \hline 1_\bomb \end{rule} \\
+    \rule{33} = \begin{rule} \r{\or24} \\ \hline 2_\bomb \end{rule} \\
+    \rule{35} = \begin{rule} \r{\or13} \\ \hline 1_\bomb \end{rule} \\
+    \rule{37} = \begin{rule} \r{\or34} \\ \hline 3_\bomb \end{rule} \\
+    \rule{40} = \begin{rule} \r{\or25} \\ \hline 2_\bomb \end{rule} \\
+    \rule{43} = \begin{rule} \r{\or35} \\ \hline 3_\bomb \end{rule} \\
+    \rule{46} = \begin{rule} \r{\or45} \\ \hline 4_\bomb \end{rule} \\
+    \rule{51} = \begin{rule} \r{\or47} \\ \hline 4_\bomb \end{rule} \\
+    \rule{54} = \begin{rule} \r{\or57} \\ \hline 5_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_\oplus} := \begin{abstraction}{xa} \r{\or x{x+a}} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_\oplus}[x:=X,a:=1]}{\rule{30}^\updated} = \begin{rule} \r{\or X{\v X{+1}}} \\ \hline X_\bomb \end{rule} \\
+    \underset{A_{\top_\oplus}[x:=X,a:=2]}{\rule{31}^\updated} = \begin{rule} \r{\or X{\v X{+2}}} \\ \hline X_\bomb \end{rule} \\
+    \underset{A_{\top_\oplus}[x:=X,a:=3]}{\rule{32}^\updated} = \begin{rule} \r{\or X{\v X{+3}}} \\ \hline X_\bomb \end{rule} \\
+    \remove{\rule{54}, \rule{51}, \rule{46}, \rule{43}, \rule{40}, \rule{37}, \rule{35}, \rule{33}}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{59} = \begin{rule} \r{\oror234} \\ \hline 2_\bomb \end{rule} \\
+    \rule{61} = \begin{rule} \r{\oror123} \\ \hline 1_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_{\oplus\oplus}} := \begin{abstraction}{xa} \r{\oror x{x+a}{x+2a}} \\ \hline x_\bomb \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\top_{\oplus\oplus}}[x:=X,a:=1]}{\rule{59}^\updated} = \begin{rule} \r{\oror X{\v X{+1}}{\v X{+2}}} \\ \hline X_\bomb \end{rule} \\
+    \underset{A_{\top_{\oplus\oplus}}[x:=X,a:=2]}{\rule{61}^\updated} = \begin{rule} \r{\oror X{\v X{+2}}{\v X{+4}}} \\ \hline X_\bomb \end{rule}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{52} = \begin{rule} \r{\parity1} \\ \hline 1_\bomb \end{rule} \\
+    \rule{56} = \begin{rule} \r{\parity3} \\ \hline 3_\bomb \end{rule} \\
+    \rule{57} = \begin{rule} \r{\parity4} \\ \hline 4_\bomb \end{rule} \\
+    \rule{58} = \begin{rule} \r{\parity2} \\ \hline 2_\bomb \end{rule}
+\end{rcases}
+\implies A_{\top_{2^*}} := \begin{abstraction}{x} \r{\parity x} \\ \hline x_\bomb \end{abstraction}
+\begin{cases}
+    \underset{A_{\top_{2^*}}[x:=X]}{\rule{52}^\new} = \begin{rule} \r{\parity X} \\ \hline X_\bomb \end{rule} \\
+    \remove{\rule{58}, \rule{57}, \rule{56}}
+\end{cases}
+\]</div>
+<p>With our basic rules generalized, we have turned 28 rules into 8.  Even better, these new rules can handle situations that we didn't cover previously, such as higher values of <span class="arithmatex">\(x\)</span> as well as <span class="arithmatex">\(A_{\top_{\oplus\oplus}}[x:=X,a:=2]\)</span>.  Given these expansions, let's perform an auto-run pass of our three tabs; which surprisingly completes well over 1000 levels.</p>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{39} = \begin{rule} \r{\or36} \\ \hline 5-_\r3 \end{rule} \\
+    \rule{40} = \begin{rule} \r{\or14} \\ \hline 3-_\r1 \end{rule} \\
+    \rule{42} = \begin{rule} \r{\or25} \\ \hline 4-_\r2 \end{rule} \\
+    \rule{48} = \begin{rule} \r{\or13} \\ \hline 2-_\r1 \end{rule}
+\end{rcases}
+\implies A_{\oplus_\downarrow} := \begin{abstraction}{xa} \r{\or x{x+a+1}} \\ \hline (x+a)-_\r x \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\oplus_\downarrow}[x:=X,a:=1]}{\rule{39}^\updated} = \begin{rule} \r{\or X{\v X{+2}}} \\ \hline \v x{+1}-_\r X \end{rule} \\
+    \underset{A_{\oplus_\downarrow}[x:=X,a:=2]}{\rule{40}^\updated} = \begin{rule} \r{\or X{\v X{+3}}} \\ \hline \v X{+2}-_\r X \end{rule} \\
+    \remove{\rule{48}, \rule{42}}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{41} = \begin{rule} \r{\or03} &amp;&amp; \r2 \\ \hline ?_\r3 &amp; ?_\r3 &amp; 1- \end{rule} \\
+    \rule{45} = \begin{rule} \r{\or01} &amp;&amp; \r2 \\ \hline ?_\r1 &amp; ?_\r1 &amp; 1- \end{rule}
+\end{rcases}
+\implies A_{\oplus_\uparrow} := \begin{abstraction}{xya} \r{\or x{x+a}} &amp;&amp; \r{x+y+1} \\ \hline ?_\r{x+a} &amp; ?_\r{x+a} &amp; y- \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{\oplus_\uparrow}[x:=X,y:=1,a:=1]}{\rule{41}^\updated} = \begin{rule}
+        \r{\or X{\v X{+1}}} &amp;&amp; \r{\v X{+2}} \\
+        \hline
+        ?_\r{\v X{+1}} &amp; ?_\r{\v X{+1}} &amp; 1-
+    \end{rule} \\
+    \underset{A_{\oplus_\uparrow}[x:=X,y:=1,a:=2]}{\rule{45}^\updated} = \begin{rule}
+        \r{\or X{\v X{+2}}} &amp;&amp; \r{\v X{+2}} \\
+        \hline
+        ?_\r{\v X{+2}} &amp; ?_\r{\v X{+2}} &amp; 1-
+    \end{rule} \\
+    \underset{A_{\oplus_\uparrow}[x:=X,y:=1,a:=3]}{\rule{60}^\new} = \begin{rule}
+        \r{\or X{\v X{+3}}} &amp;&amp; \r{\v X{+2}} \\
+        \hline
+        ?_\r{\v X{+3}} &amp; ?_\r{\v X{+3}} &amp; 1-
+    \end{rule} \\
+\end{cases}
+\]</div>
+<p>For these abstrations with <span class="arithmatex">\(y\)</span> or <span class="arithmatex">\(z\)</span> parameters, we can select which variable we substitute <span class="arithmatex">\(X\)</span> for; however, this one didn't need that.  We only created rules where <span class="arithmatex">\(y:=1\)</span>, so there was no need to account for other values or variations at this time.  In the next case, we have the opposite; all of our current rules use <span class="arithmatex">\(x:=0\)</span> but variance in <span class="arithmatex">\(y\)</span>, so we'll substitute <span class="arithmatex">\(y:=X\)</span>.</p>
+<div class="arithmatex">\[
+\begin{align*}
+\begin{rcases}
+    \rule{36} = \begin{rule} \r{\or01} &amp;&amp; \r{\or12} \\ \hline ? &amp; ?_\r1 &amp; 0 \end{rule} \\
+    \rule{42} = \begin{rule} \r{\or01} &amp;&amp; \r{\or25} \\ \hline ? &amp; ?_\r1 &amp; 1 \end{rule} \\
+    \rule{43} = \begin{rule} \r{\or01} &amp;&amp; \r{\or34} \\ \hline ? &amp; ?_\r1 &amp; 2 \end{rule} \\
+    \rule{46} = \begin{rule} \r{\or01} &amp;&amp; \r{\or13} \\ \hline ? &amp; ?_\r1 &amp; 0 \end{rule} \\
+    \rule{48} = \begin{rule} \r{\or01} &amp;&amp; \r{\or23} \\ \hline ? &amp; ?_\r1 &amp; 1 \end{rule}
+\end{rcases}
+&amp;\implies A_{A_\oplus\cap B_\oplus} = \begin{abstraction}{xyab}
+    \r{\or x{x+a}} &amp;&amp; \r{\or{x+y+a}{x+y+a+b}} \\
+    \hline
+    ? &amp; ?_\r{x+a} &amp; y
+\end{abstraction} \\
+&amp;\therefore \begin{cases}
+    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=X,a:=1,b:=1]}{\rule{36}^\updated} = \begin{rule}
+        \r{\or01} &amp;&amp; \r{\or{\v X{+1}}{\v X{+2}}} \\
+        \hline
+        ? &amp; ?_\r1 &amp; X
+    \end{rule} \\
+    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=X,a:=1,b:=2]}{\rule{42}^\updated} = \begin{rule}
+        \r{\or01} &amp;&amp; \r{\or{\v X{+1}}{\v X{+3}}} \\
+        \hline
+        ? &amp; ?_\r1 &amp; X
+    \end{rule} \\
+    \underset{A_{A_\oplus\cap B_\oplus}[x:=0,y:=X,a:=1,b:=3]}{\rule{43}^\updated} = \begin{rule}
+        \r{\or01} &amp;&amp; \r{\or{\v X{+1}}{\v X{+4}}} \\
+        \hline
+        ? &amp; ?_\r1 &amp; X
+    \end{rule} \\
+    \remove{\rule{48}, \rule{46}}
+\end{cases}
+\end{align*}
+\]</div>
+<p>With those done, we're left with our big abstration categories - subtraction and hybrid.</p>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule2 = \begin{rule} \r1 &amp;&amp; \r5 \\ \hline ? &amp; ? &amp; 4_\bomb \end{rule} \\
+    \rule4 = \begin{rule} \r2 &amp;&amp; \r1 \\ \hline 1_\bomb &amp; ? &amp; ? \end{rule} \\
+    \rule5 = \begin{rule} \r3 &amp;&amp; \r1 \\ \hline 2_\bomb &amp; ? &amp; ? \end{rule} \\
+    \rule7 = \begin{rule} \r4 &amp;&amp; \r1 \\ \hline 3_\bomb &amp; ? &amp; ? \end{rule}
+\end{rcases}
+\implies A_{(A\setminus B)_\top} := \begin{abstraction}{xy} \r{x+y} &amp;&amp; \r y \\ \hline x_\bomb &amp; ? &amp; ? \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A\setminus B)_\top}[x:=X,y:=1]}{\rule2^\updated} = \begin{rule} \r{\v X{+1}} &amp;&amp; \r1 \\ \hline X_\bomb &amp; ? &amp; ? \end{rule} \\
+    \remove{\rule7, \rule5, \rule4}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule3 = \begin{rule} \r1 &amp;&amp; \r1 \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule}
+\end{rcases}
+\implies A_{(A\subsetneq B)_\bot} := \begin{abstraction}{x} \r x &amp;&amp; \r x \\ \hline ?_\sweep &amp; ? &amp; 0 \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A\subsetneq B)_\bot}[x:=X]}{\rule3^\updated} = \begin{rule} \r X &amp;&amp; \r X \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule4 = \begin{rule} \r2 &amp;&amp; \r1 \\ \hline 2+_\r1 &amp; ? &amp; 0 \end{rule} \\
+    \rule5 = \begin{rule} \r3 &amp;&amp; \r1 \\ \hline 3+_\r2 &amp; ? &amp; 0 \end{rule}
+\end{rcases}
+\implies A_{A\subsetneq B} := \begin{abstraction}{xy} \r{x+y} &amp;&amp; \r y \\ \hline {(x+1)+}_\r x &amp; ? &amp; 0 \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{A\subsetneq B}[x:=X,y:=1]}{\rule4^\updated} = \begin{rule} \r{\v X{+1}} &amp;&amp; \r1 \\ \hline \v X{+1}+_\r X &amp; ? &amp; 0 \end{rule} \\
+    \remove{\rule5}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{13} = \begin{rule} \r{3+} &amp;&amp; \r1 \\ \hline 2_\bomb &amp; ? &amp; ? \end{rule} \\
+    \rule{25} = \begin{rule} \r{2+} &amp;&amp; \r1 \\ \hline 1_\bomb &amp; ? &amp; ? \end{rule}
+\end{rcases}
+\implies A_{(A_\geq\setminus B)_\top} := \begin{abstraction}{xy} \r{(x+y)+} &amp;&amp; \r y \\ \hline x_\bomb &amp; ? &amp; ? \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\geq\setminus B)_\top}[x:=X,y:=1]}{\rule{13}^\updated} = \begin{rule} \r{\v X{+1}+} &amp;&amp; \r1 \\ \hline X_\bomb &amp; ? &amp; ? \end{rule} \\
+    \remove{\rule{25}}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{20} = \begin{rule} \r{1-} &amp;&amp; \r1 \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule}
+\end{rcases}
+\implies A_{(A_\leq\subsetneq B)_\bot} := \begin{abstraction}{x} \r{x-} &amp;&amp; \r x \\ \hline ?_\sweep &amp; ? &amp; 0 \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\leq\subsetneq B)_\bot}[x:=X]}{\rule{20}^\updated} = \begin{rule} \r{X-} &amp;&amp; \r X \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{15} = \begin{rule} \r{2+} &amp;&amp; \r{1-} \\ \hline 1_\bomb &amp; ? &amp; ? \end{rule} \\
+    \rule{16} = \begin{rule} \r{4+} &amp;&amp; \r{1-} \\ \hline 3_\bomb &amp; ? &amp; ? \end{rule} \\
+    \rule{22} = \begin{rule} \r{3+} &amp;&amp; \r{1-} \\ \hline 2_\bomb &amp; ? &amp; ? \end{rule}
+\end{rcases}
+\implies A_{(A_\geq\setminus B_\leq)_\top} := \begin{abstraction}{xy} \r{(x+y)+} &amp;&amp; \r{y-} \\ \hline x_\bomb &amp; ? &amp; ? \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\geq\setminus B_\leq)_\top}[x:=X,y:=1]}{\rule{15}^\updated} = \begin{rule} \r{\v X{+1}+} &amp;&amp; \r{1-} \\ \hline X_\bomb &amp; ? &amp; ? \end{rule} \\
+    \remove{\rule{22}, \rule{16}}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{12} = \begin{rule} \r{1-} &amp;&amp; \r{1+} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule}
+\end{rcases}
+\implies A_{(A_\leq\subsetneq B_\geq)_\bot} := \begin{abstraction}{x} \r{x-} &amp;&amp; \r{x+} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\leq\subsetneq B_\geq)_\bot}[x:=X]}{\rule{12}^\updated} = \begin{rule} \r{X-} &amp;&amp; \r{X+} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{18} = \begin{rule} \r3 &amp;&amp; \r{1-} \\ \hline 2_\bomb &amp; ? &amp; ? \end{rule} \\
+    \rule{20} = \begin{rule} \r2 &amp;&amp; \r{1-} \\ \hline 1_\bomb &amp; ? &amp; ? \end{rule} \\
+    \rule{21} = \begin{rule} \r5 &amp;&amp; \r{1-} \\ \hline 4_\bomb &amp; ? &amp; ? \end{rule}
+\end{rcases}
+\implies A_{(A\setminus B_\leq)_\top} := \begin{abstraction}{xy} \r{x+y} &amp;&amp; \r{y-} \\ \hline x_\bomb &amp; ? &amp; ? \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A\setminus B_\leq)_\top}[x:=X,y:=1]}{\rule{18}^\updated} = \begin{rule} \r{\v X{+1}} &amp;&amp; \r{1-} \\ \hline X_\bomb &amp; ? &amp; ? \end{rule} \\
+    \remove{\rule{21}, \rule{20}}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{14} = \begin{rule} \r1 &amp;&amp; \r{1+} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule}
+\end{rcases}
+\implies A_{(A\subsetneq B_\geq)_\bot} := \begin{abstraction}{x} \r{x} &amp;&amp; \r{x+} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A\subsetneq B_\geq)_\bot}[x:=X]}{\rule{14}} = \begin{rule} \r X &amp;&amp; \r{X+} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{28} = \begin{rule} \r{\or23} &amp;&amp; \r1 \\ \hline 1_\bomb &amp; ? &amp; ? \end{rule}
+\end{rcases}
+\implies A_{(A_\oplus\setminus B)_\top} := \begin{abstraction}{xya} \r{\or{x+y}{x+y+a}} &amp;&amp; \r y \\ \hline x_\bomb &amp; ? &amp; ? \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\oplus\setminus B)_\top}[x:=X,y:=1,a:=1]}{\rule{28}^\updated} = \begin{rule} \r{\or{\v X{+1}}{\v X{+2}}} &amp;&amp; \r1 \\ \hline X_\bomb &amp; ? &amp; ? \end{rule} \\
+    \underset{A_{(A_\oplus\setminus B)_\top}[x:=X,y:=1,a:=2]}{\rule{50}^\new} = \begin{rule} \r{\or{\v X{+1}}{\v X{+3}}} &amp;&amp; \r1 \\ \hline X_\bomb &amp; ? &amp; ? \end{rule} \\
+    \underset{A_{(A_\oplus\setminus B)_\top}[x:=X,y:=1,a:=2]}{\rule{51}^\new} = \begin{rule} \r{\or{\v X{+1}}{\v X{+4}}} &amp;&amp; \r1 \\ \hline X_\bomb &amp; ? &amp; ? \end{rule}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{26} = \begin{rule} \r{\or01} &amp;&amp; \r1 \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule}
+\end{rcases}
+\implies A_{(A_\oplus\subsetneq B)_\bot} := \begin{abstraction}{xa} \r{\or x{x+a}} &amp;&amp; \r{x+a} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A_\oplus\subsetneq B)_\bot}[x:=X,a:=1]}{\rule{26}^\updated} = \begin{rule} \r{\or X{\v X{+1}}} &amp;&amp; \r{\v X{+1}} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule} \\
+    \underset{A_{(A_\oplus\subsetneq B)_\bot}[x:=X,a:=2]}{\rule{52}^\new} = \begin{rule} \r{\or X{\v X{+2}}} &amp;&amp; \r{\v X{+2}} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule} \\
+    \underset{A_{(A_\oplus\subsetneq B)_\bot}[x:=X,a:=3]}{\rule{53}^\new} = \begin{rule} \r{\or X{\v X{+3}}} &amp;&amp; \r{\v X{+3}} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{29} = \begin{rule} \r1 &amp;&amp; \r{\or12} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule}
+\end{rcases}
+\implies A_{(A\subsetneq B_\oplus)_\bot} := \begin{abstraction}{xa} \r x &amp;&amp; \r{\or x{x+a}} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{(A\subsetneq B_\oplus)_\bot}[x:=X,a:=1]}{\rule{29}^\updated} = \begin{rule} \r X &amp;&amp; \r{\or X{\v X{+1}}} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule} \\
+    \underset{A_{(A\subsetneq B_\oplus)_\bot}[x:=X,a:=2]}{\rule{54}^\new} = \begin{rule} \r X &amp;&amp; \r{\or X{\v X{+2}}} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule} \\
+    \underset{A_{(A\subsetneq B_\oplus)_\bot}[x:=X,a:=3]}{\rule{55}^\new} = \begin{rule} \r X &amp;&amp; \r{\or X{\v X{+3}}} \\ \hline ?_\sweep &amp; ? &amp; 0 \end{rule}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{16} = \begin{rule} \r2 &amp;&amp; \r2 \\ \hline ?_\r{\or01} &amp; ? &amp; 1 \end{rule}
+\end{rcases}
+\implies A_{A\setminus{B_2}} := \begin{abstraction}{x} \r{x+2} &amp;&amp; \r2 \\ \hline ?_\r{\or x{x+1}} &amp; ? &amp; 1 \end{abstraction}
+\therefore \begin{cases}
+    \underset{A_{A\setminus{B_2}}[x:=X]}{\rule{16}} = \begin{rule} \r{\v X{+2}} &amp;&amp; \r2 \\ \hline ?_\r{\or X{\v X{+1}}} &amp; ? &amp; 1 \end{rule}
+\end{cases}
+\]</div>
+<p>With the large set of substraction rules generalized, let's perform another auto-run pass to see how far we've come.  We're now about 1800 levels away from our goal.  The hybrid abstractions aren't going to get us there, but we might as well finish out this massive rule cleanup.</p>
+<div class="arithmatex">\[
+\begin{align*}
+\begin{rcases}
+    \rule7 = \begin{rule} \r1 &amp;&amp; \r1 \\ \hline ? &amp; ? &amp; ? \\ ? &amp; ? &amp; ? &amp; 1_\bomb &amp; \r3 \end{rule}
+\end{rcases}
+&amp;\implies A_{(C\setminus(A\cup B))_\top} := \begin{abstraction}{xyz}
+        \r y &amp;&amp; \r z \\
+        \hline
+        ? &amp; ? &amp; ? \\
+        ? &amp; ? &amp; ? &amp; x_\bomb &amp; \r{x+y+z}
+    \end{abstraction} \\
+&amp;\therefore \begin{cases}
+    \underset{A_{(C\setminus(A\cup B))_\top}[x:=X,y:=1,z:=1]}{\rule7^\updated} = \begin{rule} \r1 &amp;&amp; \r1 \\ \hline ? &amp; ? &amp; ? \\ ? &amp; ? &amp; ? &amp; X_\bomb &amp; \r{\v X{+2}} \end{rule}
+\end{cases}
+\end{align*}
+\]</div>
+<div class="arithmatex">\[
+\begin{align*}
+\begin{rcases}
+    \rule5 = \begin{rule} \r1 &amp;&amp; \r1 \\ \hline ? &amp; ?_\sweep &amp; ? \\ ? &amp; ? &amp; ? &amp; \or12 &amp; \r3 \end{rule} \\
+    \rule6 = \begin{rule} \r1 &amp;&amp; \r1 \\ \hline ? &amp; ?_\sweep &amp; ? \\ ? &amp; ? &amp; ? &amp; \or01 &amp; \r2 \end{rule}
+\end{rcases}
+&amp;\implies A_{((A_1\cap B_1)\setminus C)_\bot} := \begin{abstraction}{x}
+    \r1 &amp;&amp; \r1 \\
+    \hline
+    ? &amp; ?_\sweep &amp; ? \\
+    ? &amp; ? &amp; ? &amp; \or x{x+1} &amp; \r{x+2}
+\end{abstraction} \\
+&amp;\therefore \begin{cases}
+    \underset{A_{((A_1\cap B_1)\setminus C)_\bot}[x:=X]}{\rule5^\updated} = \begin{rule} 
+        \r1 &amp;&amp; \r1 \\ 
+        \hline 
+        ? &amp; ?_\sweep &amp; ? \\ 
+        ? &amp; ? &amp; ? &amp; \or X{\v X{+1}} &amp; \r{\v X{+2}} 
+    \end{rule} \\
+    \remove{\rule6}
+\end{cases}
+\end{align*}
+\]</div>
+<div class="arithmatex">\[
+\begin{align*}
+\begin{rcases}
+    \rule7 = \begin{rule} \r1 &amp;&amp; \r1 \\ \hline ?_\sweep &amp; ? &amp; ?_\sweep \\ ? &amp; ? &amp; ? &amp; 0 &amp; \r2 \end{rule}
+\end{rcases}
+&amp;\implies A_{((A\Delta B)\setminus C)_\bot} := \begin{abstraction}{xyz}
+    \r y &amp;&amp; \r z \\
+    \hline
+    ?_\sweep &amp; ? &amp; ?_\sweep \\
+    ? &amp; ? &amp; ? &amp; x &amp; \r{x+y+z}
+\end{abstraction} \\
+&amp;\therefore \begin{cases}
+    \underset{A_{((A\Delta B)\setminus C)_\bot}[x:=X,y:=1,z:=1]}{\rule7^\updated} = \begin{rule}
+        \r1 &amp;&amp; \r1 \\
+        \hline
+        ?_\sweep &amp; ? &amp; ?_\sweep \\
+        ? &amp; ? &amp; ? &amp; X &amp; \r{\v X{+2}}
+    \end{rule}
+\end{cases}
+\end{align*}
+\]</div>
+<div class="arithmatex">\[
+\begin{align*}
+\begin{rcases}
+    \rule{19} = \begin{rule}
+        \r1 &amp;&amp; \r{1-} \\
+        \hline
+        ? &amp; ?_\sweep &amp; ? \\
+        ? &amp; ? &amp; ? &amp; \or23 &amp; \r{4+}
+    \end{rule}
+\end{rcases}
+&amp;\implies A_{((A_1\cap{B_{\leq1}})\setminus C_\geq)_\bot} := \begin{abstraction}{x}
+    \r1 &amp;&amp; \r{1-} \\
+    \hline
+    ? &amp; ?_\sweep &amp; ? \\
+    ? &amp; ? &amp; ? &amp; \or x{x+1} &amp; \r{(x+2)+}
+\end{abstraction} \\
+&amp;\therefore \begin{cases}
+    \underset{A_{((A_1\cap{B_{\leq1}})\setminus C_\geq)_\bot}[x:=X]}{\rule{19}^\updated} = \begin{rule}
+        \r1 &amp;&amp; \r{1-} \\
+        \hline
+        ? &amp; ?_\sweep &amp; ? \\
+        ? &amp; ? &amp; ? &amp; \or X{\v X{+1}} &amp; \r{\v X{+2}+}
+    \end{rule}
+\end{cases}
+\end{align*}
+\]</div>
+<div class="arithmatex">\[
+\begin{align*}
+\begin{rcases}
+    \rule{34} = \begin{rule}
+        \r1 &amp;&amp; \r1 \\
+        \hline
+        ? &amp; ?_\sweep &amp; ? \\
+        ? &amp; ? &amp; ? &amp; 0 &amp; \r{\or12}
+    \end{rule}
+\end{rcases}
+&amp;\implies A_{((A_1\cap B_1)\setminus C_\oplus)_\bot} := \begin{abstraction}{xa}
+    \r1 &amp;&amp; \r1 \\
+    \hline
+    ? &amp; ?_\sweep &amp; ? \\
+    ? &amp; ? &amp; ? &amp; x &amp; \r{\or{x+1}{x+a+1}}
+\end{abstraction} \\
+&amp;\therefore \begin{cases}
+    \underset{A_{((A_1\cap B_1)\setminus C_\oplus)_\bot}[x:=X,a:=1]}{\rule{34}^\updated} = \begin{rule}
+        \r1 &amp;&amp; \r1 \\
+        \hline
+        ? &amp; ?_\sweep &amp; ? \\
+        ? &amp; ? &amp; ? &amp; X &amp; \r{\or{\v X{+1}}{\v x{+2}}}
+    \end{rule} \\
+    \underset{A_{((A_1\cap B_1)\setminus C_\oplus)_\bot}[x:=X,a:=2]}{\rule{55}^\new} = \begin{rule}
+        \r1 &amp;&amp; \r1 \\
+        \hline
+        ? &amp; ?_\sweep &amp; ? \\
+        ? &amp; ? &amp; ? &amp; X &amp; \r{\or{\v X{+1}}{\v x{+3}}}
+    \end{rule} \\
+    \underset{A_{((A_1\cap B_1)\setminus C_\oplus)_\bot}[x:=X,a:=3]}{\rule{56}^\new} = \begin{rule}
+        \r1 &amp;&amp; \r1 \\
+        \hline
+        ? &amp; ?_\sweep &amp; ? \\
+        ? &amp; ? &amp; ? &amp; X &amp; \r{\or{\v X{+1}}{\v x{+4}}}
+    \end{rule}
+\end{cases}
+\end{align*}
+\]</div>
+<div class="arithmatex">\[
+\begin{align*}
+\begin{rcases}
+    \rule{37} = \begin{rule}
+        \r{\or01} &amp;&amp; \r1 \\
+        \hline
+        ?_\sweep &amp; ? &amp; ?_\sweep \\
+        ? &amp; ? &amp; ? &amp; 0 &amp; \r{\or23}
+    \end{rule}
+\end{rcases}
+&amp;\implies A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot} := \begin{abstraction}{xyzab}
+    \r{\or y{y+b}} &amp;&amp; \r z \\
+    \hline
+    ?_\sweep &amp; ? &amp; ?_\sweep \\
+    ? &amp; ? &amp; ? &amp; x &amp; \r{\or{x+y+z+b}{x+y+z+a+b}}
+\end{abstraction} \\
+&amp;\therefore \begin{cases}
+    \underset{A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot}[x:=X,y:=0,z:=1,a:=1,b:=1]}{\rule{37}^\updated} = \begin{rule}
+        \r{\or01} &amp;&amp; \r1 \\
+        \hline
+        ?_\sweep &amp; ? &amp; ?_\sweep \\
+        ? &amp; ? &amp; ? &amp; X &amp; \r{\or{\v X{+2}}{\v X{+3}}}
+    \end{rule} \\
+    \underset{A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot}[x:=X,y:=0,z:=1,a:=2,b:=1]}{\rule{57}^\new} = \begin{rule}
+        \r{\or01} &amp;&amp; \r1 \\
+        \hline
+        ?_\sweep &amp; ? &amp; ?_\sweep \\
+        ? &amp; ? &amp; ? &amp; X &amp; \r{\or{\v X{+2}}{\v X{+4}}}
+    \end{rule} \\
+    \underset{A_{((A_\oplus\Delta B)\setminus C_\oplus)_\bot}[x:=X,y:=0,z:=1,a:=3,b:=1]}{\rule{58}^\new} = \begin{rule}
+        \r{\or01} &amp;&amp; \r1 \\
+        \hline
+        ?_\sweep &amp; ? &amp; ?_\sweep \\
+        ? &amp; ? &amp; ? &amp; X &amp; \r{\or{\v X{+2}}{\v X{+5}}}
+    \end{rule}
+\end{cases}
+\end{align*}
+\]</div>
+<div class="arithmatex">\[
+\begin{align*}
+\begin{rcases}
+    \rule{16} = \begin{rule}
+        \r1 &amp;&amp; \r{2+} \\
+        \hline
+        ? &amp; ? &amp; 1 \\
+        ?_\sweep &amp; ? &amp; ? &amp; ? &amp; \r{\or01}
+    \end{rule}
+\end{rcases}
+&amp;\implies A_{((A\cap B_{\oplus1})\setminus C_\geq)_\bot} := \begin{abstraction}{xyz}
+    \r y &amp;&amp; \r{(x+y+z)+} \\
+    \hline
+    ? &amp; ? &amp; x \\
+    ?_\sweep &amp; ? &amp; ? &amp; ? &amp; \r{\or z{z+1}}
+\end{abstraction} \\
+&amp;\therefore \begin{cases}
+    \underset{A_{((A\cap B_{\oplus1})\setminus C_\geq)_\bot}[x:=X,y:=1,z:=0]}{\rule{16}^\updated} = \begin{rule}
+        \r1 &amp;&amp; \r{\v X{+1}+} \\
+        \hline
+        ? &amp; ? &amp; X \\
+        ?_\sweep &amp; ? &amp; ? &amp; ? &amp; \r{\or01}
+    \end{rule}
+\end{cases}
+\end{align*}
+\]</div>
+<p>Miraculously, these hybrid abstraction rules trim over about 50 more levels off our list.  There's still a ways to go, so we should probably get back to the <em>actual</em> game.</p>
+<h2 id="level-set-s11">Level Set S11</h2>
+<p>We're getting back to basics.</p>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{S11.66} = &amp;\begin{rule}
+        \r3 &amp;&amp; \r2 \\
+        \hline
+        3 &amp; 3 &amp; 0
+    \end{rule}
+\end{rcases}
+\implies \abstraction{A\subsetneq B} := \begin{abstraction}{xy}
+    \r{x+y} &amp;&amp; \r y \\
+    \hline
+    (x+1)+_\r x &amp; ? &amp; 0
+\end{abstraction} \\
+\therefore \begin{cases}
+    \underset{\abstraction{A\subsetneq B}[x:=X,y:=2]}{\rule{59}^\new} = &amp;\begin{rule}
+        \r{\v X{+2}} &amp;&amp; \r2 \\
+        \hline
+        \v X{+1}+_\r X &amp; ? &amp; 0
+    \end{rule}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{rcases}
+    \rule{S11.98} = &amp;\begin{rule}
+        \r4 &amp;&amp; \r2 \\
+        \hline
+        2 &amp; 3 &amp; 0
+    \end{rule}
+\end{rcases}
+\implies \abstraction{A\setminus B} := \begin{abstraction}{xy}
+    \r{x+y} &amp;&amp; \r y \\
+    \hline
+    x_\bomb &amp; ? &amp; ?
+\end{abstraction}
+\therefore \begin{cases}
+    \underset{\abstraction{A\setminus B}[x:=X,y:=2]}{\rule{60}^\new} = &amp;\begin{rule}
+        \r{\v X{+2}} &amp;&amp; \r2 \\
+        \hline
+        X_\bomb &amp; ? &amp; ?
+    \end{rule}
+\end{cases}
+\]</div>
+<div class="arithmatex">\[
+\begin{align*}
+\begin{rcases}
+    \rule{S11.138} = &amp;\begin{rule}
+        \r1 &amp;&amp; \r1 \\
+        \hline
+        0 &amp; 1 &amp; 0 \\
+        1 &amp; 1 &amp; 1 &amp; 1 &amp; \r1
+    \end{rule}
+\end{rcases}
+&amp;\implies \abstraction{((A_1\Delta B_1)\cap C_1)_\bot}^\new := \begin{abstraction}{}
+    \r1 &amp;&amp; \r1 \\
+    \hline
+    0 &amp; ? &amp; 0 \\
+    ?_\sweep &amp; ? &amp; ?_\sweep &amp; ? &amp; \r1
+\end{abstraction} \\
+&amp;\therefore \begin{cases}
+    \underset{\abstraction{((A_1\Delta B_1)\cap C_1)_\bot}}{\rule{61}^\new} = &amp;\begin{rule}
+        \r1 &amp;&amp; \r1 \\
+        \hline
+        0 &amp; ? &amp; 0 \\
+        ?_\sweep &amp; ? &amp; ?_\sweep &amp; ? &amp; \r1
+    \end{rule}
+\end{cases}
+\end{align*}
+\]</div>
+<p>These three rules finish out the level set.  Let's perform our usual auto-run passes before moving onto the next level set.</p>
+<h2 id="level-set-s12">Level Set S12</h2>
+<p>We have a bit more cleanup to do as we continue across the first row of square level sets.</p>
+<div class="arithmatex">\[
+\begin{align*}
+\begin{rcases}
+    \rule{S12.111} = &amp;\begin{rule}
+        \r{1+} &amp;&amp; \r{1+} \\
+        \hline
+        0 &amp; 0 &amp; 0 \\
+        2 &amp; 0 &amp; 2 &amp; 1 &amp; \r2
+    \end{rule}
+\end{rcases}
+&amp;\implies \abstraction{(A\setminus(A_\oplus \cup B_\oplus))_\bot}^\new := \begin{abstraction}{xy}
+    \r{x+} &amp;&amp; \r{y+} \\
+    \hline
+    0 &amp; 0 &amp; 0 \\
+    ? &amp; 0 &amp; ? &amp; ?_\sweep &amp; \r{x+y}
+\end{abstraction} \\
+&amp;\therefore \begin{cases}
+    \underset{\abstraction{(A\setminus(A_\oplus \cup B_\oplus))_\bot}[x:=X,y:=1]}{\rule{62}^\new} = &amp;\begin{rule}
+        \r{X+} &amp;&amp; \r{1+} \\
+        \hline
+        0 &amp; 0 &amp; 0 \\
+        ? &amp; 0 &amp; ? &amp; ?_\sweep &amp; \r{\v X{+1}}
+    \end{rule}
+\end{cases}
+\end{align*}
+\]</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../phase-1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Phase 1 (Static Rules)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Phase 1 (Static Rules)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../appendixes/abstractions/" class="md-footer__link md-footer__link--next" aria-label="Next: Abstractions">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Abstractions
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.footnote.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
